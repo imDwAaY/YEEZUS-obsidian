@@ -11,14 +11,10 @@
             "id": "b69ff08db17b8033",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "caonima.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "caonima"
+              "title": "新标签页"
             }
           }
         ]
@@ -170,7 +166,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b69ff08db17b8033",
+  "active": "c66d4df195204e24",
   "lastOpenFiles": [
     "CS188/Note/Note11.md",
     "caonima.md",

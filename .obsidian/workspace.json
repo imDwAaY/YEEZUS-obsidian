@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS188/Note/Note11.md",
+                "file": "caonima.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Note11"
+              "title": "caonima"
             }
           }
         ]
@@ -172,8 +172,9 @@
   },
   "active": "b69ff08db17b8033",
   "lastOpenFiles": [
-    "CS188/Note/Note10.md",
     "CS188/Note/Note11.md",
+    "caonima.md",
+    "CS188/Note/Note10.md",
     "CS188/Note/Note9.md",
     "CS188/Note/Note8.md",
     "CS188/Proj/Proj2_Multi-Agent_Search/Multi-Agent_Search.md",
@@ -217,7 +218,6 @@
     "Proj/Music/前端",
     "Proj/Music",
     "Proj",
-    "CS188/Proj/Proj1_Search",
-    "Vim实用技巧/未命名.md"
+    "CS188/Proj/Proj1_Search"
   ]
 }

@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "82fd2677535a87bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4b7bd3f895f9f32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b69ff08db17b8033",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS188/Note/Note11.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Note11"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4af4c84de841dd92",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc9198f0219b182a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c66d4df195204e24",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3bfe9648be3bd34a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": " ",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "50eb1cd189884749",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 250.5
+  },
+  "right": {
+    "id": "27620039a6a19c17",
+    "type": "split",
+    "children": [
+      {
+        "id": "f64e30cf658a7cc1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c2566391b12482f3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS188/Hw/HW2.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "HW2 的出链列表"
+            }
+          },
+          {
+            "id": "64702fd861899368",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "3cf9854a7e5d2010",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS188/Hw/HW2.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "HW2 的大纲"
+            }
+          },
+          {
+            "id": "ba7a2429d7e46703",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS188/Proj/Proj1/搜索.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "搜索 的反向链接列表"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "b69ff08db17b8033",
+  "lastOpenFiles": [
+    "CS188/Note/Note10.md",
+    "CS188/Note/Note11.md",
+    "CS188/Note/Note9.md",
+    "CS188/Note/Note8.md",
+    "CS188/Proj/Proj2_Multi-Agent_Search/Multi-Agent_Search.md",
+    "CS188/Proj/Proj3_Reinforcement_Learning/Reinforcement Learning.md",
+    "CS188/Proj/Proj1_Search/Search.md",
+    "CS188/Note/Note5.md",
+    "CS188/Note/Note7.md",
+    "CS188/Note/Note3.md",
+    "CS188/Note/Note4.md",
+    "CS188/Note/Note2.md",
+    "CS188/Proj/环境搭建.md",
+    "Vim实用技巧.md",
+    "未命名.base",
+    "CS188/static/Pasted image 20260222232940.png",
+    "CS188/static/3dc5a64d4ade3f52de0ea4fb2692d250.png",
+    "CS188/static/920d89d9104d3a97bca4c6acdf76c40b.png",
+    "CS188/Proj/Proj3_Reinforcement_Learning",
+    "CS188/Note/Note6.md",
+    "CS188/static/image.GJQWK3 1.png",
+    "CS188/static/image.H1GYK3.png",
+    "CS188/static/image.GJQWK3.png",
+    "CS188/static/image.0WC4K3.png",
+    "ZJU_DS/树/平衡二叉树的调整.md",
+    "CS188/static/image.JDD4J3.png",
+    "CS188/static/image.JZAMK3.png",
+    "CS188/static/image.JZAMK3 1.png",
+    "CS188/Hw/HW1.md",
+    "CS188/Hw/HW2.md",
+    "未命名.canvas",
+    "未命名 1.base",
+    "().md",
+    "CS188/Proj/Proj1_Search/Q&A.md",
+    "CS188/Proj/Proj2_Multi-Agent_Search",
+    "Proj/Music/前端/前端Vue部署过程.md",
+    "Proj/Music/后端/网易云API部署过程.md",
+    "Proj/Music/Node.md",
+    "state space.md",
+    "state.md",
+    "CS188/Note",
+    "Proj/Music/后端",
+    "Proj/Music/前端",
+    "Proj/Music",
+    "Proj",
+    "CS188/Proj/Proj1_Search",
+    "Vim实用技巧/未命名.md"
+  ]
+}

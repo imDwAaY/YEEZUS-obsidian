@@ -1,0 +1,53 @@
+/* ==================================================
+   Obsidian 高级字体样式 Snippet
+   功能：字体颜色 / 背景色 / 高亮 / 字体大小 / 加粗 / 斜体
+   使用方法：<span class="red-text bold large">文字</span>
+   ================================================== */
+
+/* ------------------------
+   字体颜色
+------------------------ */
+.red-text { color: #FF0000; }
+.darkred-text { color: #8B0000; }
+.orange-text { color: #FFA500; }
+.yellow-text { color: #FFFF00; }
+.green-text { color: #008000; }
+.blue-text { color: #0000FF; }
+.darkblue-text { color: #00008B; }
+.purple-text { color: #800080; }
+.pink-text { color: #FFC0CB; }
+.gray-text { color: #808080; }
+.black-text { color: #000000; }
+.white-text { color: #FFFFFF; }
+
+/* ------------------------
+   背景色 / 高亮
+------------------------ */
+.highlight-yellow { background-color: #FFFF00; color: #000; }
+.highlight-cyan { background-color: #00FFFF; color: #000; }
+.highlight-pink { background-color: #FFC0CB; color: #000; }
+.highlight-green { background-color: #90EE90; color: #000; }
+
+/* ------------------------
+   字体大小
+   small / normal / large / xlarge / xxlarge
+------------------------ */
+.small { font-size: 0.75em; }
+.normal { font-size: 1em; }
+.large { font-size: 1.25em; }
+.xlarge { font-size: 1.5em; }
+.xxlarge { font-size: 2em; }
+
+/* ------------------------
+   字体样式
+   bold / italic / underline
+------------------------ */
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+
+/* ------------------------
+   综合示例
+   使用方法：
+   <span class="red-text bold large highlight-yellow">示例文字</span>
+------------------------ */

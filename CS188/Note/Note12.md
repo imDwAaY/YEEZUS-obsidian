@@ -3,7 +3,7 @@ tags:
   - CS188
   - "#Bayes_Nets"
   - "#Probability"
-source: "Note11(Bayes Nets: Bayesian Networks (Cam))"
+source: 6.3 Bayesian Network Representation
 ---
 # 问题引入
 在Note11中我们提及到了[联合分布](CS188/Note/Note11#Joint%20Ditribution(%20联合分布%20)),我们先要想的就是一个问题：如果我们有n个变量，每个变量有d种取值，那联合概率表一共需要$d^n$行，这是一个非常庞大的数据量，这时候就引入了贝叶斯网络。贝叶斯网络通过利用条件概率的概念来避免这一个问题，它并非将信息存储在一个巨大的表格中，而是将概率分布分布在多个较小的条件概率表中，并且搭配一个有向无环图使用( Directed acyclic graph )简称为`DAG`

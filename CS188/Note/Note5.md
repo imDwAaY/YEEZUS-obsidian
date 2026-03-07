@@ -34,7 +34,7 @@ tags:
 - **More precisely, it performs a postorder traversal(后续遍历) of the game tree.** 必须知道所有的子节点，才处理节点本身，符合后续遍历的模式
 ## 伪代码
 ![[image.YTHBH3.png]]
-## Example
+## Minimax Example
 ![[image.U8UGH3.png]]
 -  The minimax algorithm only maximizes over the children of nodes controlled by Pacman, while minimizing over the children of nodes controlled by ghosts.
 -  Hence, the two ghost nodes above have values of min(−8,−5) = −8 and min(−10,+8) = −10 respectively.
@@ -46,7 +46,7 @@ tags:
 **关键思想（剪枝条件）**
 - 在 max 节点处，若已有一个当前最好值 `α`，在考察某个子树时，如果子树的最优上界 ≤ α，就可以剪掉（因为父节点肯定不会选这个子树）。
 - 在 min 节点处，则用 `β`（当前最小值）；若子树最优下界 ≥ β，则剪掉。
-## Example
+## Alpha-Beta Pruning Example
 ![[image.OOAFH3.png]]
 - Square nodes corresponding to terminal states
 - Downward-pointing triangles corresponding to minimizing nodes
@@ -63,7 +63,7 @@ tags:
  $$Eval(s)=w_1f_1(s)+w_2f_2(s)+...+w_nf_n(s)$$
 - Each $f_i(s)$ corresponds to a feature extracted from the input state s,$f_i(s)$ 是从局面提取的特征（如在跳棋游戏中子数、王子数、控制中心格子数、棋子位置安全度等）
 - Each feature is assigned a corresponding weight $w_i$(权重)
-## Example
+## Evaluation Functions Example
 符合跳棋游戏的一个Evaluation Function
 $$Eval(s) = 2 · agent\_kings(s) +agent_ pawns(s)−2 · opponent\_ kings(s)$$
 - 设计要点：

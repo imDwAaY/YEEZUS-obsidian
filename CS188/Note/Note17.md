@@ -3,6 +3,7 @@ tags:
   - CS188
   - "#HMM"
   - "#Forward_Algorithm"
+  - "#Viterbi_Algorithm"
 source: 8.2( Hidden Markov Models ) - 8.3( The Viterbi Algorithm )
 ---
 # Hidden Markov Models
@@ -63,6 +64,8 @@ $$
 ## Forward Algorithm实例
 ![[截屏2026-03-14 21.09.47.png|275]]
 ![[截屏2026-03-14 21.12.20.png]]
+这里需要解释一下，我怀疑过一个问题: 即我已经观测到了"good forecast"，为什么我用的是$P(F \mid W)$,难道F不是被观测了吗？
+> 我们需要理解的是$P(F \mid W)$是在衡量这个观测有多合理。`Observation update` 不是在算“观测的概率”，而是在用观测去给不同状态打分
 - - -
 # Viterbi Algorithm
 我们在`Forward algorithm`中已经讨论到了当前在哪个状态的概率最大，我们现在提及到的算法`Viterbi Algorithm`求的是在所有可能的隐藏序列中，哪一条路径整体概率最大

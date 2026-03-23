@@ -4,6 +4,7 @@ tags:
   - "#Utilities"
   - "#Decision_Networks"
   - "#VPI"
+  - "#Bayes_Nets"
 source: 7.1( Utilities ) - 7.3 ( The Value of Perfect Information )
 ---
 本次Note因为比CS188 2018Fall上课讲授内容增添了很多新内容，所以会比较详细一些。同时将[Bayes Net](CS188/Note/Note12#Bayes%20Net)和我们之前所学知识正式结合起来，有种受益匪浅的感觉

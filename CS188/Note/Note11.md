@@ -43,7 +43,7 @@ $$
 	-  `P(A,B|C) = P(A|C)P(B|C)`
 	这个比较好理解，可以理解成C为一种绝对正确的公理，这样转化格式变为`P(A,B) = P(A)P(B)`  
 	- `P(A|B,C) = P(A|C)`
-# Inference by Enumeration
+	# Inference by Enumeration
 
 | Season | Temperature | Weather | Probability |
 | ------ | ----------- | ------- | ----------- |

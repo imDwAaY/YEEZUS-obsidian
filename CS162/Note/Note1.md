@@ -7,6 +7,7 @@ tags:
   - "#Address_Space"
   - "#File_System"
   - "#Socket"
+  - "#Abstraction"
 ---
 - 为应用程序提供**统一的硬件接口**，隐藏底层差异# Operating System
 首先我们要清楚的是，操作系统并没有一个统一接受的权威定义:

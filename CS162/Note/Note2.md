@@ -7,6 +7,7 @@ tags:
   - "#Protection_And_Isolation"
   - "#Dual_Mode_Operation"
   - "#Time_Multiplexing"
+  - "#Abstraction"
 ---
 这次介绍的是四大基本OS概念:`Thread`, `Address Space`, `Process`, `Dual Mode Operation`。这次的Note内容是对上一次[Note](CS162/Note/Note1)的一些补充和扩展,比如对于`Thread`等概念进行了阐述。
 # Thread

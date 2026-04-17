@@ -7,6 +7,7 @@ tags:
   - "#Low_Level_I/O"
   - "#POSIX_I/O"
   - "#Buffer"
+  - "#Abstraction"
 ---
 # Everything is a File
 如题，这句话是一句非常强的抽象，这也是`Unix`能形成强大生态的一个重要原因。

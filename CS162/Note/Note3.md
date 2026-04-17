@@ -5,6 +5,7 @@ tags:
   - "#System_Call_Handler"
   - "#Interrupt_Control"
   - "#Interrupt_Controller"
+  - "#Abstraction"
 ---
 # Schedule
 我们假设现在有两个进程，一个`core`。两个进程在运行过程中出现了中断，在`Kernel`模式下处理中断并保存和恢复寄存器所需的时间等等这些都是开销。如果我们频繁切换，我们花费的时间就会过多。一般会认为花费了10%的CPU周期就是开销过大，这时候就引入了`Schedule`

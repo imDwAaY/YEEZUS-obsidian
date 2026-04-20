@@ -9,7 +9,7 @@ tags:
 ---
 # Schedule
 我们假设现在有两个进程，一个`core`。两个进程在运行过程中出现了中断，在`Kernel`模式下处理中断并保存和恢复寄存器所需的时间等等这些都是开销。如果我们频繁切换，我们花费的时间就会过多。一般会认为花费了10%的CPU周期就是开销过大，这时候就引入了`Schedule`
-![[截屏2026-04-01 20.36.25.png]]
+![[notes/CS162/static/截屏2026-04-01 20.36.25.png]]
 在原PPT中`Schedule`的定义是，其中文是调度:
 
 > Scheduling is deciding which process/thread receives CPU time, when, and for how long
@@ -27,7 +27,7 @@ tags:
 - Fragmentation: `B&B`的基本前提是一个进程对应一整块连续内存，现实中进程会创建退出，并且不同进程占用大小不一样，释放之后会留下很多空洞。剩的很多但是空不出来一整个大块，这就叫做`external fragmentation(外部碎片)`
 - Sharing: 很难在进程之间共享数据，很难在进程和kernel之间共享数据，往往只能通过kernel间接通信
 所以说现代主要用的是Pages tables / virtual memory
-![[截屏2026-04-01 21.40.50.png|322]]![[截屏2026-04-01 21.40.16.png|342]]
+![[notes/CS162/static/截屏2026-04-01 21.40.50.png|322]]![[notes/CS162/static/截屏2026-04-01 21.40.16.png|342]]
 # Implementing Safe Kernel Mode Transfers
 我们先回忆一下[User -> Kernel 的三种方式](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式),我们的初衷是不能让恶意或者错误的用户程序让内核本身遭到破坏。
 ## 先前条件
@@ -35,7 +35,7 @@ tags:
 - 在进入`Kernel Mode`的时候，要**原子性**地转移到明确的`Kernel`入口点。原子性就是在表示内核入口一定要精确再精确，只能通过固定入口来进入，不能让用户随意跳到任何位置
 - Seperate kernel stack: 不能使用用户生态栈，而要切到独立的`kernel stack`。第一个原因是User stack不可信，用户程序不可预测; 第二个原因是User stack会被修改，这时候内核逻辑会被直接劫持。
 这里在给个例子详细解释一下为什么需要`Kernel stack`而绝不能相信`User stack`：
-![[截屏2026-04-01 23.35.25.png|338]]![[截屏2026-04-01 23.46.40.png|327]]
+![[notes/CS162/static/截屏2026-04-01 23.35.25.png|338]]![[notes/CS162/static/截屏2026-04-01 23.46.40.png|327]]
 第一张图片是在运行用户程序，当前CPU寄存器里面寄存着SS:ESP -> 用户栈，CS:EIP -> 当前执行位置，还有其他的寄存器,这些寄存器保存的都是`thread`的[上下文](notes/CS162/Note/Note2.md#Thread).
 第二张图片进入了`Kernel Mode`，触发事件有可能是[三种转换方式中的一种](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式),这时候`User stack`就切换到了`Kernel stack`，同时CPU把上下文自动压到`Kernel stack`，并且执行`handler`。`handler`执行结束后就restore context，并且重新切回`User mode`和`User stack`
 那我们如何限制内核入口点呢？
@@ -71,20 +71,20 @@ Interrupt Handler invoked with interrupts ‘disabled’
 - Pack up in a queue and pass off to an OS thread for hard work
 	- wake up an existing OS thread
 ### Interrupt Controller
-![[截屏2026-04-02 21.09.10.png]]
+![[notes/CS162/static/截屏2026-04-02 21.09.10.png]]
 上图是`Interrupt Controller`的执行过程:
 1. 首先接受中断信号，可能来自网卡,磁盘或者定时器等等等等
 2. 然后决定处理哪个中断: 这其中会根据`interrupt ID`，`mask`,`priority`等等内容来决定先处理哪个中断
 3. CPU关闭中断，但是`NMI(Non-Maskable Interrupt)`是不可关闭的，它用于紧急硬件错误处理
 ## 受控接口
 我们很明显能意识到，System Call是唯一的通道: OS想让User以尽可能小并且功能完整的接口来让用户访问内核:
-![[截屏2026-04-02 12.57.12.png]]
+![[notes/CS162/static/截屏2026-04-02 12.57.12.png]]
 我们再次看下面这个图片时，能对流程有更深的理解
-![[截屏2026-03-30 18.12.33.png]]
+![[notes/CS162/static/截屏2026-03-30 18.12.33.png]]
 用户代码在`Application`这一层，代码可能链接了某些标准库，比如`libc`等等。然后这些库可能会向内核部分发起系统调用，将会在系统模式下运行内核代码的部分
 - - -
 # Web Server实例
-![[截屏2026-04-02 21.34.45.png]]
+![[notes/CS162/static/截屏2026-04-02 21.34.45.png]]
 上图对于一个简单的`Web Server`的流程，综合了之前所学的大部分知识。过程非常详细，可以看到的是: 在整个过程中，`syscall`和`数据拷贝`发生的很频繁，`User mode`和`Kernel Mode`边界切换非常频繁，整个过程伴随着大量开销。
 - - -
 # Process Management
@@ -184,7 +184,7 @@ if (cpid > 0) { /* Parent Process */
 }
 …
 ```
-父进程等待子进程结束，`wait()`是为了获取`child`的退出状态![[截屏2026-04-02 22.31.02.png]]
+父进程等待子进程结束，`wait()`是为了获取`child`的退出状态![[notes/CS162/static/截屏2026-04-02 22.31.02.png]]
 ### Kill
 ```c
 #include <stdlib.h>

@@ -7,10 +7,10 @@ tags:
   - "#Value_Iteration"
 source: "Note18(MDPs: Dynamic Programming (Cam))"
 ---
-开始上强度了，Note8主要是在讲解MDP问题的解决方法，所以说要记住这个Note8围绕的是求解[policy(状态到动作的映射)](Note7.md#策略(%20Policy%20)与目标)
+开始上强度了，Note8主要是在讲解MDP问题的解决方法，所以说要记住这个Note8围绕的是求解[policy(状态到动作的映射)](notes/CS188/Note/Note7.md#策略(%20Policy%20)与目标)
 # Value Iteration
 ## 初步思路框架
-首先想到的第一个方法就是评估每个状态的utility,之后用[Bellman方程](Note7.md#Bellman方程)来求解Q*( s, a )，即最优Q值，在状态 s **执行动作 a**后，再按最优策略能获得的期望折扣总奖励。最优Q值里面就带有了动作信息，从而求出最佳policy
+首先想到的第一个方法就是评估每个状态的utility,之后用[Bellman方程](notes/CS188/Note/Note7.md#Bellman方程)来求解Q*( s, a )，即最优Q值，在状态 s **执行动作 a**后，再按最优策略能获得的期望折扣总奖励。最优Q值里面就带有了动作信息，从而求出最佳policy
 $$
 \LARGE
 \begin{align*}
@@ -31,7 +31,7 @@ U_{k+1}(s) &\leftarrow \max_a \sum_{s'} T(s,a,s')\big[R(s,a,s') + \gamma\, U_k(s
 $$
 证明值迭代最终会收敛的过程省略，在原Note中有详细证明过程
 ## Value Iteration示例
-![[image.OVUXI3.png]]
+![[notes/CS188/static/image.OVUXI3.png]]
 折扣因子γ = 0.5，最开始的初始状态所有状态的都是$\begin{align*}U_{0}(s)\end{align*}$ = 0，所以可以得到下面的表格
 
 |       | cool | warm | overheated |
@@ -159,7 +159,7 @@ $$
 \end{align*}
 $$
 ## Policy Iteration示例
-![[image.OVUXI3.png]]
+![[notes/CS188/static/image.OVUXI3.png]]
 依旧是汽车这个图，首先初始化policy为总是slow
 
 |           | cool | warm | overheated |

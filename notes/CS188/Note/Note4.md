@@ -9,7 +9,7 @@ tags:
 
 - 局部搜索把“状态”定义为**一个完整的候选解（complete solution）**，不关心如何一步步到达这个解（path），而只关心最终的目标是否满足或目标函数的值是否最优。常用于约束满足问题（CSP）或优化问题（maximize/minimize objective）。
 - 直观：从当前解出发，只在其邻域里寻找更好的解，直到达到某种停止条件（例如局部最优）。
-![[image.AQ9JH3.png]]
+![[notes/CS188/static/image.AQ9JH3.png]]
 ### Local Search覆盖的算法
 
 - Hill-Climbing
@@ -22,7 +22,7 @@ tags:
 - 不保存搜索树，仅保存当前状态和当前值
 - 容易陷入局部最优陷阱( local maxima ( see figure 4.1 ) )
 ### 伪代码实现
-![[image.JO6BH3.png | 550]]
+![[notes/CS188/static/image.JO6BH3.png| 550]]
 ### Variants(变体)
 - Stochastic hill-climbing: randomly choose among uphill moves.
 - Random sideways moves: allow non-improving moves occasionally.
@@ -36,7 +36,7 @@ tags:
 - If temperature decreases slowly enough (theoretically), SA converges to global optimum with probability → 1.理论上，如果温度下降得足够慢，模拟退火算法将以接近1的概率达到全局最大值。
 - **理论上的收敛性声明是关于"会被访问到"而不是”一直会被保留在当前状态“。所以要把"访问到"变成"保留"，就需要记录历史最优**
 ### 伪代码实现
-![[image.QT5FH3.png]]
+![[notes/CS188/static/image.QT5FH3.png]]
 ## Local Beam Search
 ### 要点
 - 是[HIll-climbing](notes/CS188/Note/Note4.md#Hill-Climbing)的variant(变体)
@@ -50,16 +50,16 @@ tags:
 ### 要点
 - 维护一个 population（大小 k），individuals(状态state) 用字符串来编码(finite alphabet)
 ### 伪代码实现
-![[image.UZC9G3.png | 720]]
+![[notes/CS188/static/image.UZC9G3.png| 720]]
 ### 实例(8-Queen)
 #### 要点
 - Representation: an array of length 8 where position i gives the row of the queen in column i (values 1..8).
 - Fitness: number of non-attacking pairs (higher is better). Equivalent: maximize `C(8,2) - #conflicts`.
 - GA process: select parents by fitness, crossover at random cut, mutate by randomly changing a gene.
-![[image.GZHEH3.png]]
+![[notes/CS188/static/image.GZHEH3.png]]
 **Why GA works well**: crossover can combine independently-evolved good substructures (building blocks) to produce better individuals.
 The probability of choosing a state to “reproduce" is **proportional(正比)** to the value of that state.  We proceed to select pairs of states to reproduce by sampling from these probabilities (column (c) in Fig. 4.6). 
-![[image.UST4G3.png]]
+![[notes/CS188/static/image.UST4G3.png]]
 #### Q1:Mutation 是不是“随机突变”？
 
 **mutation 本质上就是随机突变**。  

@@ -7,7 +7,7 @@ tags:
   - "#Bayes_Nets"
 source: 7.1( Utilities ) - 7.3 ( The Value of Perfect Information )
 ---
-本次Note因为比CS188 2018Fall上课讲授内容增添了很多新内容，所以会比较详细一些。同时将[Bayes Net](Note12.md#Bayes%20Net)和我们之前所学知识正式结合起来，有种受益匪浅的感觉
+本次Note因为比CS188 2018Fall上课讲授内容增添了很多新内容，所以会比较详细一些。同时将[Bayes Net](notes/CS188/Note/Note12.md#Bayes%20Net)和我们之前所学知识正式结合起来，有种受益匪浅的感觉
 # Utilities
 在我的Note中，最早提及到`Utility`这个概念是在[Note5](notes/CS188/Note/Note5.md#Game%20Formulation),当时我们在定义成的时候简单理解为了得到的分数。现在我们进行正式定义`Utility`：
 > `Utility`是一个数值，用来表示 agent 对某个结果的偏好程度。在决策理论中，agent 的目标是**最大化期望效用（Maximize Expected Utility, MEU）**。
@@ -84,7 +84,7 @@ $$
 - **Risk-neutral**：U(x) = x，对 lottery 和固定 $500 无差异
 - **Risk-averse**：U(x) = √x，偏好固定 $500
 - **Risk-seeking**：U(x) = x²，偏好 lottery
-![[截屏2026-03-07 18.56.25.png|697]]
+![[notes/CS188/static/截屏2026-03-07 18.56.25.png|697]]
 - - -
 # Decision Networks
 Decision Network 是 Bayes' Net 和 Expectimax 的结合，用来在不确定性下做决策。首先我们又重新回顾了一下节点图形的分类，原先的节点分类在[Note5](notes/CS188/Note/Note5.md#Alpha-Beta%20Pruning%20Example)提及到过，在`Decision Networks`中包含了三类节点：
@@ -109,7 +109,7 @@ $$
 \end{align*}
 $$
 ## Decision Networks Example
-![[截屏2026-03-07 19.21.13.png]]
+![[notes/CS188/static/截屏2026-03-07 19.21.13.png]]
 $$
 \LARGE
 \begin{gather}
@@ -124,8 +124,8 @@ Decision network 的决策过程可以展开为 **outcome tree**：
 - 根节点是 **maximizer**（我们选择动作）
 - 下一层是 **chance nodes**（根据概率分布）
 - 叶子节点是 **utility values**
-![[截屏2026-03-07 19.25.37.png]]
-结果树本质上很像[Expectimax](Note6.md#Expectimax):
+![[notes/CS188/static/截屏2026-03-07 19.25.37.png]]
+结果树本质上很像[Expectimax](notes/CS188/Note/Note6.md#Expectimax):
 - 我方节点取 max
 - 随机节点取 expectation
 但是不同的是outcome tree 会明确标出“当前知道什么 evidence”，课件里说是用大括号标记 what we know at any moment。
@@ -166,10 +166,10 @@ VPI(E' \mid e) &= MEU(e, E') - MEU(e)
 \end{align*}
 $$
 ## VPI例子
-![[截屏2026-03-07 19.57.21.png]]
+![[notes/CS188/static/截屏2026-03-07 19.57.21.png]]
 
-![[截屏2026-03-07 20.00.17.png]]
-![[截屏2026-03-07 20.00.32.png]]
+![[notes/CS188/static/截屏2026-03-07 20.00.17.png]]
+![[notes/CS188/static/截屏2026-03-07 20.00.32.png]]
 ## VPI的三个重要性质
 1. **Nonnegativity（非负性）**：
 $$

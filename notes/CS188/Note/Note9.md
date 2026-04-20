@@ -9,7 +9,7 @@ source: "Note24(RL: Reinforcement Learning I (Cam))"
 ---
 # Reinforcement Learning
 ## Offline Planning and Online Planning
-在先前的[MDP](Note7.md#Markov%20Decision%20Processes)中，我们完全知道了转移函数和奖励函数。这种在真正采取行动之前，就已经知道最优怎么做叫做离线规划( Offline planning )，现在Reinforcement Learning是在线规划，agent对真实世界一无所知，必须靠探索( exploration )来收集经验样本，逐步估计最优策略
+在先前的[MDP](notes/CS188/Note/Note7.md#Markov%20Decision%20Processes)中，我们完全知道了转移函数和奖励函数。这种在真正采取行动之前，就已经知道最优怎么做叫做离线规划( Offline planning )，现在Reinforcement Learning是在线规划，agent对真实世界一无所知，必须靠探索( exploration )来收集经验样本，逐步估计最优策略
 ## Types of RL
 强化学习分为两种类型：
 - 1. **基于模型的学习 (Model-based Learning)**：先用样本估计$\hat{T}$和$\hat{R}$，再用规划算法求解策略。
@@ -19,7 +19,7 @@ source: "Note24(RL: Reinforcement Learning I (Cam))"
 基于模型的学习在判断转移函数时用概率来大致统计真实的转移函数值，判断奖励函数时直接取所观测到的r的平均值。看例子会更好理解
 ## 模型学习示例
 状态集 S={A,B,C,D,E,x}，x为终止态，折扣因子γ=1，经历了4个episode一共有12个样本
-![[image.JDD4J3.png | 220]] ![[image.WCIPK3.png | 270]]
+![[notes/CS188/static/image.JDD4J3.png| 220]] ![[notes/CS188/static/image.WCIPK3.png| 270]]
 12个样本表格化的的计数结果如下
 
 | s   | a     | s'  | count |
@@ -59,7 +59,7 @@ Model-Free Learning又分为被动强化学习( Passive Reinforcement Learning )
 # Direction Evaluation
 这是第一个被动强化学习，它的原理很简单。在任意一点，我们可以用从s得到的总效用除以s被访问的次数来计算任何状态s的估计值
 依旧回顾一下前面的情景，折扣因子为1
-![[image.JDD4J3.png | 220]]![[image.WCIPK3.png | 280]]
+![[notes/CS188/static/image.JDD4J3.png| 220]]![[notes/CS188/static/image.WCIPK3.png| 280]]
 
 ```text
 from state D to termination we acquired a total reward of 10, from state C we acquired a total reward of (−1) + 10 = 9, and from state B we acquired a total reward of (−1) + (−1) + 10 = 8.
@@ -72,7 +72,7 @@ from state D to termination we acquired a total reward of 10, from state C we ac
 | C   | 16           | 4             | 4            |
 | D   | 30           | 3             | 10           |
 | E   | -4           | 2             | -2           |
-![[image.JZAMK3 1.png | 260]]
+![[notes/CS188/static/image.JZAMK3 1.png| 260]]
 一定一定要注意，这里的效用值是累计折扣回报，而不是单步的回报，所以说在计算状态B的效用值的时候要加上未来的回报。
 根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](notes/CS188/Note/Note3.md#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$\begin{align*}V^{\pi}(B) &= V^{\pi}(E)\end{align*}$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差
 
@@ -121,7 +121,7 @@ $$
 Q_{k+1}(s,a) &= \sum_{s'} T(s,a,s')\big[\,R(s,a,s') + \gamma \max_{a'} Q_k(s',a')\,\big]
 \end{align*}
 $$
-这个公式是贝尔曼方程的変式，其需要T,R 这是[Value Iteration](Note8.md#Value%20Iteration)的变体,不是实际的Q-learning
+这个公式是贝尔曼方程的変式，其需要T,R 这是[Value Iteration](notes/CS188/Note/Note8.md#Value%20Iteration)的变体,不是实际的Q-learning
 ## 实际方法
 $$
 \LARGE

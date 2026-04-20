@@ -26,16 +26,16 @@ tags:
 ### Terminal utility
 - The value of a terminal state, called a terminal utility.
 - 其总是一些确定的已知值和固有的game property
-### 面对**没有opponent**的状态是max的定义如下![[451f68e89224d7619beee3d0621f1254.png]]
+### 面对**没有opponent**的状态是max的定义如下![[notes/CS188/static/451f68e89224d7619beee3d0621f1254.png]]
 
 ## Defination
-![[ce71d14083dd7cf2924e17dedd107349.png]]
+![[notes/CS188/static/ce71d14083dd7cf2924e17dedd107349.png]]
 - 假设opponent总是采取对主体最坏的措施(即对手会选择让你获得收益最少的行为)。因此该算法就在你自己的回合**最大化**价值，对手在其回合**最小化**价值
 - **More precisely, it performs a postorder traversal(后续遍历) of the game tree.** 必须知道所有的子节点，才处理节点本身，符合后续遍历的模式
 ## 伪代码
-![[image.YTHBH3.png]]
+![[notes/CS188/static/image.YTHBH3.png]]
 ## Minimax Example
-![[image.U8UGH3.png]]
+![[notes/CS188/static/image.U8UGH3.png]]
 -  The minimax algorithm only maximizes over the children of nodes controlled by Pacman, while minimizing over the children of nodes controlled by ghosts.
 -  Hence, the two ghost nodes above have values of min(−8,−5) = −8 and min(−10,+8) = −10 respectively.
 - Correspondingly, the root node controlled by Pacman has a value of max(−8,−10) = −8.
@@ -47,14 +47,14 @@ tags:
 - 在 max 节点处，若已有一个当前最好值 `α`，在考察某个子树时，如果子树的最优上界 ≤ α，就可以剪掉（因为父节点肯定不会选这个子树）。
 - 在 min 节点处，则用 `β`（当前最小值）；若子树最优下界 ≥ β，则剪掉。
 ## Alpha-Beta Pruning Example
-![[image.OOAFH3.png]]
+![[notes/CS188/static/image.OOAFH3.png]]
 - Square nodes corresponding to terminal states
 - Downward-pointing triangles corresponding to minimizing nodes
 - Upward-pointing triangles corresponding to maximizer nodes
 中间的minimizer当遇到第一个子节点，即值为2的节点，就可以知道minimizer的返回值是<=2的。回看maxmizer,处理完第一个minimizer后，第一个minimizer的返回值为3。maxmizer就不会再取中间的minimizer的值，值为4和6的节点就可以被剪掉
-![[image.8D21G3.png]]
+![[notes/CS188/static/image.8D21G3.png]]
 ## 伪代码实现
-![[image.3QEIH3.png]]
+![[notes/CS188/static/image.3QEIH3.png]]
 - 在理想情况下可以把时间复杂度降低到O($b^{m/2}$）,最坏情况下依旧是O($b^m$）
 - 实践中，良好的**move ordering(动作排序)** 会让 alpha-beta 非常高效。
 # Evaluation Functions

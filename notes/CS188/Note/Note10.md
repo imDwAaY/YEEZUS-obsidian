@@ -10,7 +10,7 @@ source: "Note24(RL: Reinforcement Learning I (Cam))  Note25(RL: Reinforcement Le
 
 # Approximate Q-learning
 Q-learning虽然很有优势，但是缺乏了泛化能力。当pacman学习了`figure1`中的困境后，智能体是不会意识到`figure2,figure3`中的情景和`figure1`中的困境基本一样
-![[image.H1GYK3.png | 160]]![[image.GJQWK3 1.png | 160]]![[image.0WC4K3.png | 160]]
+![[notes/CS188/static/image.H1GYK3.png| 160]]![[notes/CS188/static/image.GJQWK3 1.png| 160]]![[notes/CS188/static/image.0WC4K3.png| 160]]
 所以说`Q-Learning`很有局限性，这时候该算法就不再记下具体状态，而是记住状态特征，将状态表示为特征向量，比如pacman的特征向量就可以编码为
 -  离最近ghost的距离
 -  离最近food的距离
@@ -66,11 +66,11 @@ $$
 其中N( s, a )表示状态-动作对( s, a )被访问的次数。k表示偏好系数，即控制探索( Exploration )的强度
 # RL Summary
 ## Model-based Learning（基于模型的学习）
-在Note9中有详细介绍，[快速回顾](Note9.md#Model-Based%20Learning)
+在Note9中有详细介绍，[快速回顾](notes/CS188/Note/Note9.md#Model-Based%20Learning)
 - 先估计环境的转移函数T和奖励函数R
-- 再用这些估计值进行规划（如 [Value Iteration](Note8.md#Value%20Iteration) / [Policy Iteration](Note8.md#Policy%20Iteration)）
+- 再用这些估计值进行规划（如 [Value Iteration](notes/CS188/Note/Note8.md#Value%20Iteration) / [Policy Iteration](notes/CS188/Note/Note8.md#Policy%20Iteration)）
 ## Model-free Learning（无模型学习）
-在Note9中有详细介绍，[快速回顾](Note9.md#Model-Free%20Learning)
+在Note9中有详细介绍，[快速回顾](notes/CS188/Note/Note9.md#Model-Free%20Learning)
 - 不显式估计 TT 和 RR，直接学习值函数或策略
 
 | 方法                                             | 描述                 | 特点                     |

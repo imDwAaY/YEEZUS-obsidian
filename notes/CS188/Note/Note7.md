@@ -19,13 +19,20 @@ source: "Note17(MDPs: States, Values, Policies, Q-values (Cam))"
 ### 状态与动作
 状态：`{cool, warm, overheated}`（overheated 为终止状态） 动作：`{slow, fast}`
 ### 转移函数和奖励函数
-**• Transition Function: T (s, a, s′ )               • Reward Function: R(s, a, s′ )**
-– T (cool, slow, cool) = 1                                    – R(cool, slow, cool) = 1
-– T (warm, slow, cool) = 0.5                             – R(warm, slow, cool) = 1
-– T (warm, slow, warm) = 0.5                          – R(warm, slow, warm) = 1
-– T (cool, f ast, cool) = 0.5                                – R(cool, f ast, cool) = 2
-– T (cool, f ast, warm) = 0.5                             – R(cool, f ast, warm) = 2
-– T (warm, f ast, overheated) = 1                  – R(warm, f ast, overheated) = −10i
+- **Transition Function: T (s, a, s′ )**         
+	- T (cool, slow, cool) = 1                                    
+	- T (warm, slow, cool) = 0.5                             
+	- T (warm, slow, warm) = 0.5                          
+	- T (cool, f ast, cool) = 0.5                                
+	- T (cool, f ast, warm) = 0.5                             
+	- T (warm, f ast, overheated) = 1                  
+- **Reward Function: R(s, a, s′ )**
+	- R(cool, slow, cool) = 1
+	- R(warm, slow, cool) = 1
+	- R(warm, slow, warm) = 1
+	- R(cool, f ast, cool) = 2
+	- R(cool, f ast, warm) = 2
+	- R(warm, f ast, overheated) = −10i
 ### 未折扣的效用函数
 我们可以数学化表示最终要最大化下列的效用函数( utility function )
 $$

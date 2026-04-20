@@ -10,7 +10,9 @@ source: "Note24(RL: Reinforcement Learning I (Cam))  Note25(RL: Reinforcement Le
 
 # Approximate Q-learning
 Q-learning虽然很有优势，但是缺乏了泛化能力。当pacman学习了`figure1`中的困境后，智能体是不会意识到`figure2,figure3`中的情景和`figure1`中的困境基本一样
+
 ![[notes/CS188/static/image.H1GYK3.png| 160]]![[notes/CS188/static/image.GJQWK3 1.png| 160]]![[notes/CS188/static/image.0WC4K3.png| 160]]
+
 所以说`Q-Learning`很有局限性，这时候该算法就不再记下具体状态，而是记住状态特征，将状态表示为特征向量，比如pacman的特征向量就可以编码为
 -  离最近ghost的距离
 -  离最近food的距离

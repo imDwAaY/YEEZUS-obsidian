@@ -21,7 +21,9 @@ source: 6.6 Exact Inference in Bayes Nets
 - S：是否触发蛇
 - E：是否能逃脱
 求$P(T \mid +e)$，即已知逃脱成功，求拿到宝藏的概率
+
 ![[notes/CS188/static/image.WUUML3.png|250]]
+
 **Step1:首先列出所有因子**
 - $P(T)$
 - $P(C \mid T)$

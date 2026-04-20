@@ -33,8 +33,10 @@ Variables (all binary):
 - **A**: Alarm goes off
 - **J**： John calls
 - **M**: Mary calls
+
 DAG：
 ![[notes/CS188/static/5ef361bb6748b0402068a2e85b4d6f95.png]]
+
 根据联合概率计算公式，我们可以得知
 $$
 \large

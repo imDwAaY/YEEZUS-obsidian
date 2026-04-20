@@ -12,14 +12,16 @@ source: "Note24(RL: Reinforcement Learning I (Cam))"
 在先前的[MDP](notes/CS188/Note/Note7.md#Markov%20Decision%20Processes)中，我们完全知道了转移函数和奖励函数。这种在真正采取行动之前，就已经知道最优怎么做叫做离线规划( Offline planning )，现在Reinforcement Learning是在线规划，agent对真实世界一无所知，必须靠探索( exploration )来收集经验样本，逐步估计最优策略
 ## Types of RL
 强化学习分为两种类型：
-- 1. **基于模型的学习 (Model-based Learning)**：先用样本估计$\hat{T}$和$\hat{R}$，再用规划算法求解策略。
--  2.**无模型学习 (Model-free Learning)**：**不显式建模**转移和奖励，直接估计值函数 V(s)或动作值函数 Q(s,a)
+1. **基于模型的学习 (Model-based Learning)**：先用样本估计$\hat{T}$和$\hat{R}$，再用规划算法求解策略。
+2. **无模型学习 (Model-free Learning)**：**不显式建模**转移和奖励，直接估计值函数 V(s)或动作值函数 Q(s,a)
 ---
 # Model-Based Learning
 基于模型的学习在判断转移函数时用概率来大致统计真实的转移函数值，判断奖励函数时直接取所观测到的r的平均值。看例子会更好理解
 ## 模型学习示例
 状态集 S={A,B,C,D,E,x}，x为终止态，折扣因子γ=1，经历了4个episode一共有12个样本
-![[notes/CS188/static/image.JDD4J3.png| 220]] ![[notes/CS188/static/image.WCIPK3.png| 270]]
+
+![[notes/CS188/static/image.JDD4J3.png|231]]![[notes/CS188/static/image.WCIPK3.png|272]]
+
 12个样本表格化的的计数结果如下
 
 | s   | a     | s'  | count |
@@ -30,6 +32,7 @@ source: "Note24(RL: Reinforcement Learning I (Cam))"
 | C   | east  | D   | 3     |
 | D   | exit  | x   | 3     |
 | E   | north | C   | 2     |
+|     |       |     |       |
 $$
 \large
 \begin{align*}
@@ -59,7 +62,9 @@ Model-Free Learning又分为被动强化学习( Passive Reinforcement Learning )
 # Direction Evaluation
 这是第一个被动强化学习，它的原理很简单。在任意一点，我们可以用从s得到的总效用除以s被访问的次数来计算任何状态s的估计值
 依旧回顾一下前面的情景，折扣因子为1
-![[notes/CS188/static/image.JDD4J3.png| 220]]![[notes/CS188/static/image.WCIPK3.png| 280]]
+
+![[notes/CS188/static/image.JDD4J3.png|227]]![[notes/CS188/static/image.WCIPK3.png| 280]]
+
 
 ```text
 from state D to termination we acquired a total reward of 10, from state C we acquired a total reward of (−1) + 10 = 9, and from state B we acquired a total reward of (−1) + (−1) + 10 = 8.
@@ -72,6 +77,7 @@ from state D to termination we acquired a total reward of 10, from state C we ac
 | C   | 16           | 4             | 4            |
 | D   | 30           | 3             | 10           |
 | E   | -4           | 2             | -2           |
+
 ![[notes/CS188/static/image.JZAMK3 1.png| 260]]
 一定一定要注意，这里的效用值是累计折扣回报，而不是单步的回报，所以说在计算状态B的效用值的时候要加上未来的回报。
 根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](notes/CS188/Note/Note3.md#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$V^{\pi}(B) = V^{\pi}(E)$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差

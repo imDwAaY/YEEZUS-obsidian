@@ -19,10 +19,14 @@ graph given all of its parents.
 ```
 ## Causal Chain( 因果链 )
 - 没有被给定：
+
 ![[notes/CS188/static/image.A7DLL3.png| 500]]
+
 这时X和Z不是独立的，因为信息可以沿着链来传递
 - 给定Y：
+
 ![[notes/CS188/static/image.SHOKL3.png| 500]]
+
 这时候X和Z关于Y**条件独立**(X⊥⊥Z∣Y)，这时候就用到了最开始提到的定理，只要给定了某个节点的所有父节点，那么该节点就与其所有祖先节点在逻辑上是相互独立的，此时X和Z是独立的
 也可以通过公式来证明：
 HINT: 记得回顾一下[链式法则](notes/CS188/Note/Note11.md#Chain%20Rule(%20链式法则%20))还有[独立性](notes/CS188/Note/Note11.md#Independence(%20独立性%20))
@@ -39,10 +43,14 @@ $$
 
 ## Common Cause( 共同原因 )
 - 没有被给定：
+
 ![[notes/CS188/static/image.H4APL3.png| 300]]
+
 X，Z**不是独立的**，因为他们共同受到了Y的影响。
 - 给定Y：
+
 ![[notes/CS188/static/image.UQ4TL3.png| 300]]
+
 X 和 Z 关于 Y **条件独立** (X⊥⊥Z∣Y)。知道 Y 之后，X 和 Z 之间的关联被解释，再无其他联系，同样可以通过公式来证明：
 $$
 \LARGE
@@ -54,10 +62,14 @@ P(X\mid Z,y) &= \frac{P(X,Z,y)}{P(Z,y)}
 $$
 ## Common Effect
 - 没有被给定:
+
 ![[notes/CS188/static/image.ZE8VL3.png| 300]]
+
 X⊥⊥Z，没有任何给定，没有理由认为两个无关的原因有关联
 - 给定Y：
+
 ![[notes/CS188/static/image.H07ML3.png| 300]]
+
 X和Z不独立，X和Z会对Y产生的原因产生`explaining away( 解释竞争 )`。
 - - -
 # D-Seperation判定算法

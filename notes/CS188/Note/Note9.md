@@ -74,12 +74,12 @@ from state D to termination we acquired a total reward of 10, from state C we ac
 | E   | -4           | 2             | -2           |
 ![[notes/CS188/static/image.JZAMK3 1.png| 260]]
 一定一定要注意，这里的效用值是累计折扣回报，而不是单步的回报，所以说在计算状态B的效用值的时候要加上未来的回报。
-根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](notes/CS188/Note/Note3.md#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$\begin{align*}V^{\pi}(B) &= V^{\pi}(E)\end{align*}$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差
+根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](notes/CS188/Note/Note3.md#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$V^{\pi}(B) = V^{\pi}(E)$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差
 
 ---
 # Temporal Difference Learning
 相较与`Direction Evaluation`核心的改进就是agent会从每次经验中学习，而不是等到episode结束才平均。它利用了贝尔曼方程的思想，用当前对后继状态的估值来更新当前状态
-首先初始化$V^{\pi}(s) = 0$,这个算法所采用的样本为$\begin{align*}(s,\ \pi(s),\ s',\ r)\end{align*}$，获得样本后进行如下计算，其中 α是**学习率** (learning rate)，0≤α≤1，通常随着时间衰减
+首先初始化$V^{\pi}(s) = 0$,这个算法所采用的样本为$(s,\ \pi(s),\ s',\ r)$，获得样本后进行如下计算，其中 α是**学习率** (learning rate)，0≤α≤1，通常随着时间衰减
 $$
 \LARGE
 \begin{align*}

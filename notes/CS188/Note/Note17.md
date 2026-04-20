@@ -7,11 +7,11 @@ tags:
 source: 8.2( Hidden Markov Models ) - 8.3( The Viterbi Algorithm )
 ---
 # Hidden Markov Models
-我们在之前学习到了[马尔可夫模型](Note7.md#Markov%20Decision%20Processes)，并且着重点放在了状态随时间怎么变化。但是现实情况是，有很多真实状态我们观测不到。所以说我们正式引入`HMM( Hidden Markov Models )`.
+我们在之前学习到了[马尔可夫模型](notes/CS188/Note/Note7.md#Markov%20Decision%20Processes)，并且着重点放在了状态随时间怎么变化。但是现实情况是，有很多真实状态我们观测不到。所以说我们正式引入`HMM( Hidden Markov Models )`.
 > 状态依然按照`Markov chain`演化，但每个时刻都会产生一个可以观测的`evidence variable`,相当于每走一步观测一次
 
-![[截屏2026-03-14 20.26.44.png]]
-需要提及的是在原Note中给出的一些独立性变量，我们可以回顾一下[Note13](Note13.md)的内容，图中展示的内容全部为`因果链( Causal Chain )`,有一个变量被观测，则被观测节点的+n节点和-n节点都是相互独立的
+![[notes/CS188/static/截屏2026-03-14 20.26.44.png]]
+需要提及的是在原Note中给出的一些独立性变量，我们可以回顾一下[Note13](notes/CS188/Note/Note13.md)的内容，图中展示的内容全部为`因果链( Causal Chain )`,有一个变量被观测，则被观测节点的+n节点和-n节点都是相互独立的
 $$
 \LARGE
 \begin{align*}
@@ -26,7 +26,7 @@ $$
 - 类似的，我们定义在i状态下，还没有在此刻采取观测的`belief`为$B'(W_i) = P(W_i \mid f_1, ..., f_{i - 1})$
 ## HMM两个关键独立性假设
 ### 状态转移仍然满足马尔可夫性
-在[Note7](Note7.md#马尔可夫性%20Markovianess)，我们提及到了马尔可夫性，即可以简单理解为给定当前状态s **( 以及当前动作a )** 后未来的下一步action概率分布不受过去的任何行为影响 -> **只需要当前状态即可预测未来行为**
+在[Note7](notes/CS188/Note/Note7.md#马尔可夫性%20Markovianess)，我们提及到了马尔可夫性，即可以简单理解为给定当前状态s **( 以及当前动作a )** 后未来的下一步action概率分布不受过去的任何行为影响 -> **只需要当前状态即可预测未来行为**
 ### 当前观测只依赖当前状态
 $$
 \LARGE
@@ -62,8 +62,8 @@ B(W_{i+1}) &\propto P\big(f_{i+1}\mid W_{i+1}\big)\sum_{w_i} P\big(W_{i+1}\mid w
 \end{align*}
 $$
 ## Forward Algorithm实例
-![[截屏2026-03-14 21.09.47.png|275]]
-![[截屏2026-03-14 21.12.20.png]]
+![[notes/CS188/static/截屏2026-03-14 21.09.47.png|275]]
+![[notes/CS188/static/截屏2026-03-14 21.12.20.png]]
 这里需要解释一下，我怀疑过一个问题: 即我已经观测到了"good forecast"，为什么我用的是$P(F \mid W)$,难道F不是被观测了吗？
 > 我们需要理解的是$P(F \mid W)$是在衡量这个观测有多合理。`Observation update` 不是在算“观测的概率”，而是在用观测去给不同状态打分
 - - -
@@ -113,7 +113,7 @@ $$
 Viterbi 的关键就在于：
 > 它优化的是整条 path 的联合概率，而不是每个时刻单独最优。
 ## State Trellis
-![[截屏2026-03-14 21.51.13.png]]
+![[notes/CS188/static/截屏2026-03-14 21.51.13.png]]
 我们可以通过该图来理解Viterbi
 - 横轴是时间 1,2,…,N
 - 每一列是这个时刻可能的 hidden states

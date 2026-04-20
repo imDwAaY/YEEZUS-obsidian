@@ -7,7 +7,7 @@ tags:
 source: Week 1 Friday _ Week 2 Monday_ Reliability
 ---
 # 互联网四层模型
-![[截屏2026-03-10 09.04.10.png]]
+![[notes/CS144/static/截屏2026-03-10 09.04.10.png]]
 - - -
 # Internet Protocol
 Internet Protocal简称`IP`，是互联网四层模型中`Network Layer`中一层的概念
@@ -70,7 +70,7 @@ UDP 会把它封装成一个 **User Datagram**，里面包含
 - 每一层通过**服务抽象（service abstraction）向上层提供服务**
 ## UDP和IP的分层关系
 
-![[截屏2026-03-10 09.23.58.png]]
+![[notes/CS144/static/截屏2026-03-10 09.23.58.png]]
 唯一需要注意的一点就是:
 > Routers only look at the IP layer, not the application payload.
 - - -

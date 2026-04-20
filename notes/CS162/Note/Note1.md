@@ -16,7 +16,7 @@ tags:
 > 总的来说，核心理解是:
 **OS is the special software layer between hardware and applications.**  它位于硬件和应用程序之间，负责向上提供抽象，向下管理硬件
 
-![[截屏2026-03-21 18.05.17.png]]
+![[notes/CS162/static/截屏2026-03-21 18.05.17.png]]
 ## OS的三个角色
 ### 1.Referee( 管理者 )
 OS 要负责管理资源，并防止不同程序互相干扰，其中核心任务包括了:

@@ -15,7 +15,7 @@ source: "Note17(MDPs: States, Values, Policies, Q-values (Cam))"
 - **奖励函数R( s, a, s') -- 表示在状态 s 执行动作 a 后到达状态 s′ 所获得的即时奖励**
 - **折扣因子( 可选 )**
 ## Example
-![[image.OVUXI3.png]]
+![[notes/CS188/static/image.OVUXI3.png]]
 ### 状态与动作
 状态：`{cool, warm, overheated}`（overheated 为终止状态） 动作：`{slow, fast}`
 ### 转移函数和奖励函数
@@ -36,8 +36,8 @@ U\big([s_0,a_0,s_1,a_1,s_2,\ldots]\big)
 \end{align*}
 $$
 ### Q-states
-MDP也能转化称搜索树，不确定性的节点叫做**Q-states**，对应下面的搜索树图中的绿色圆圈。**Q-states**非常类似于[Expectimax算法](Note6.md#Expectimax)，它们都用**概率**来处理环境的不确定性，这一点和Expectimax算法中的机会节点( chance node )十分相近
-![[image.T7O5I3.png]]
+MDP也能转化称搜索树，不确定性的节点叫做**Q-states**，对应下面的搜索树图中的绿色圆圈。**Q-states**非常类似于[Expectimax算法](notes/CS188/Note/Note6.md#Expectimax)，它们都用**概率**来处理环境的不确定性，这一点和Expectimax算法中的机会节点( chance node )十分相近
+![[notes/CS188/static/image.T7O5I3.png]]
 - - -
 # Finite Horizons and Discounting
 引入问题：若允许无限步及，某些策略( 例如一直执行安全动作 )可能会获得无限期的正回报

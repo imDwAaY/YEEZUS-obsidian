@@ -17,7 +17,7 @@ source: Note19( Machine Learning I (Cam))
 ### Unsupervised Learning
 只有输入没有标签。这个过程目的不是为了预测正确答案，而是为了发现数据内部结构。
 ## 数据集划分
-![[截屏2026-04-18 12.35.57.png]]
+![[notes/CS188/static/截屏2026-04-18 12.35.57.png]]
 划分区别很简单：
 - Training set：用来学习参数
 - Validation set：用来调参，选择模型
@@ -48,8 +48,8 @@ $$
 > Features are conditionally independent given the class label.
 
 这是`Naive`的真正来源，因为现实中很多特征其实并不独立，但是模型强行把它们看成独立的。
-也就是下图的理解，在给定类别Y的条件下，各个特征$F_i$彼此独立。在[Note13的D-Separation算法](Note13.md#D-Separation)中我们也提及到了判断每个$F_i$是否条件独立的方法
-![[截屏2026-04-18 16.27.26.png|281]]
+也就是下图的理解，在给定类别Y的条件下，各个特征$F_i$彼此独立。在[Note13的D-Separation算法](notes/CS188/Note/Note13.md#D-Separation)中我们也提及到了判断每个$F_i$是否条件独立的方法
+![[notes/CS188/static/截屏2026-04-18 16.27.26.png|281]]
 在数学上我们可以理解为下面的式子：
 $$
 \LARGE

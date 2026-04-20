@@ -53,7 +53,7 @@ tags:
 - 如果 h1, h2 都是 admissible（或 consistent），则 h = max(h1, h2) 仍然是 admissible（或 consistent）。
 - 因为 max of numbers in [0, h*(n)] 仍在同一区间内。
 
-![[3fef52eb51522b8b65927b0e9ab4fe43.png | 150]]
+![[notes/CS188/static/3fef52eb51522b8b65927b0e9ab4fe43.png| 150]]
 ### 应用
 - 常把多种较弱启发式结合成一个更强的启发式（例如 Manhattan + linear conflict）。
 

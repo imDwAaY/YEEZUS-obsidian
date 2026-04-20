@@ -9,18 +9,18 @@ tags:
 source: "6.7( Approximate Inference in Bayes Nets: Sampling ) - 6.8( Summary )"
 ---
 #  问题引入
-我们在Note14中提及到了两种解决计算条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$的方法,分别是[Inference by Enumeration](Note14.md#Inference)和[Variable Elimination](Note14.md#Variable%20Elimination),这两种方法我们叫做精确推理( #Exact_Inference  )，在面临网格结构复杂还有变量众多的情况下，其计算量会变得巨大。所以说我们就引入了一种近似推理的方法--**Sampling**，通过牺牲精度来换效率。这种方法我们叫做 #Approximate_Inference 
+我们在Note14中提及到了两种解决计算条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$的方法,分别是[Inference by Enumeration](notes/CS188/Note/Note14.md#Inference)和[Variable Elimination](notes/CS188/Note/Note14.md#Variable%20Elimination),这两种方法我们叫做精确推理( #Exact_Inference  )，在面临网格结构复杂还有变量众多的情况下，其计算量会变得巨大。所以说我们就引入了一种近似推理的方法--**Sampling**，通过牺牲精度来换效率。这种方法我们叫做 #Approximate_Inference 
 # Prior Sampling
-这个方法是在通过拓扑顺序来依次在CPT中随机抽样，进而生成一个完整样本。再之后不断重复这个过程，出现大量样本后，某个事件出现的频率会收敛至它出现的真实频率.每个样本 (x₁, x₂, ..., xₙ) 被抽中的概率正是网络的联合概率 P(x₁, x₂, ..., xₙ)，因为生成过程就是按照联合概率的分解[（Chain rule）](Note11.md#Chain%20Rule(%20链式法则%20))依次采样。
+这个方法是在通过拓扑顺序来依次在CPT中随机抽样，进而生成一个完整样本。再之后不断重复这个过程，出现大量样本后，某个事件出现的频率会收敛至它出现的真实频率.每个样本 (x₁, x₂, ..., xₙ) 被抽中的概率正是网络的联合概率 P(x₁, x₂, ..., xₙ)，因为生成过程就是按照联合概率的分解[（Chain rule）](notes/CS188/Note/Note11.md#Chain%20Rule(%20链式法则%20))依次采样。
 它的缺点也很明显，在面临计算条件概率的问题时，会浪费大量的样本，进而导致效率十分低下。如果样本很少时，又不能覆盖所有的情况
-> 这里提醒一句，在[Bayes Net](Note12.md#Bayes%20Net)中，一定一定不能把概率设为0.0，即便这个事件发生的概率很小，也应该赋予一个很小的概率值
+> 这里提醒一句，在[Bayes Net](notes/CS188/Note/Note12.md#Bayes%20Net)中，一定一定不能把概率设为0.0，即便这个事件发生的概率很小，也应该赋予一个很小的概率值
 ## 实例
-![[截屏2026-03-04 14.24.37.png]]
+![[notes/CS188/static/截屏2026-03-04 14.24.37.png]]
 - 上面给定了五个样本，我们观察一下求解$P(C \mid +w)$的概率。给定+w，我们只需要划掉第三个样本，剩下四个样本+C的概率为3/4，即得$P(C \mid +w)$为3/4.
 - 这里我们想一个问题，给定-w和-r的情况下，C的概率为多少？很明显五个样本没有这种情况，无法回答这个问题。
 > 样本只是根据概率分布来随机抽取，有时候能完美覆盖我们所需要的问题，有时候又没有我们需要的样本。如果我们需要的情况足够罕见，那么我们很有可能很长时间都找不到这个样本.这是Sampling很明显的缺点
 ## Python实现
-![[截屏2026-03-02 21.39.48.png|231]]
+![[notes/CS188/static/截屏2026-03-02 21.39.48.png|231]]
 ```python
 import random
 def get_t():
@@ -61,7 +61,7 @@ def get_sample():
 ## Likelihood Weighting不同节点的内在联系
 - 我们需要意识到的是，因为我们固定`evidence`是固定出现的，`evidence`相关的条件概率并不会影响这个样本出现的概率。只有`evidence`之外的节点才会影响该样本的概率。
 - 而我们的权重是只有概率节点的条件概率的乘积，这两个乘积没有任何交集，但它们的乘积就是联合概率
-我们在这里回顾一下`Bayes Net`的[联合概率计算公式](Note12.md#联合概率计算公式)，[联合概率](Note11.md#Joint%20Distribution(%20联合分布%20))就是所有节点的条件概率的乘积。
+我们在这里回顾一下`Bayes Net`的[联合概率计算公式](notes/CS188/Note/Note12.md#联合概率计算公式)，[联合概率](notes/CS188/Note/Note11.md#Joint%20Distribution(%20联合分布%20))就是所有节点的条件概率的乘积。
 假设一个网格，`A -> B -> C`,假设`evidence`为`C = True`，联合分布为
 $$
 \LARGE
@@ -84,7 +84,7 @@ $$
 w &= \prod_{\text{evidence}} P\big(e_i \mid \mathrm{parents}(e_i)\big) = P(C \mid B)
 \end{align*}
 $$
-上面二式乘积正为[联合概率](Note11.md#Joint%20Distribution(%20联合分布%20))
+上面二式乘积正为[联合概率](notes/CS188/Note/Note11.md#Joint%20Distribution(%20联合分布%20))
 $$
 \LARGE
 \begin{align*}
@@ -93,7 +93,7 @@ sample\,prob×w = P(A, B, C)
 $$
 
 ## 伪代码实现
-![[截屏2026-03-03 08.33.10.png]]
+![[notes/CS188/static/截屏2026-03-03 08.33.10.png]]
 - - -
 # Gibbs Sampling
 我们需要思考一个有关`Likelihood Weighting`的问题：Fire代表火灾，Alarm代表警报响，他们的网格关系为`F -> A`
@@ -111,7 +111,7 @@ $$
 | -F  | -A  | 0.99          |
 假设我们想了解$P(+F \mid +A)$,用`Likelihood Weighting`算法来进行的话，我们强制固定+A，然后在F中投硬币。有99%的概率会出现`-F +A`的样本，我们浪费了大量算力来找一个罕见样本`+F +A`,这就是我们为什么需要`Gibbs Sampling`
 ## Markov Blanket
-首先需要介绍的一个概念是马尔可夫毯：一个变量的马尔可夫毯包括它的**父节点、子节点、以及子节点的其他父节点**。在给定马尔可夫毯的条件下，该变量与网络中所有其他变量条件独立。因此，重新采样时只需考虑它的马尔可夫毯。![[截屏2026-03-04 18.35.26.png|638]]
+首先需要介绍的一个概念是马尔可夫毯：一个变量的马尔可夫毯包括它的**父节点、子节点、以及子节点的其他父节点**。在给定马尔可夫毯的条件下，该变量与网络中所有其他变量条件独立。因此，重新采样时只需考虑它的马尔可夫毯。![[notes/CS188/static/截屏2026-03-04 18.35.26.png|638]]
 ## 步骤
 - **Step 0：Random initialization（随机初始化)**
     一开始完全乱填，不看 CPT：
@@ -125,4 +125,4 @@ $$
 	4. 按这个分布重新给 S 抽一个值
 然后继续挑另一个变量，重复同样的过程。
 ## 伪代码
-![[截屏2026-03-04 18.50.07.png]]
+![[notes/CS188/static/截屏2026-03-04 18.50.07.png]]

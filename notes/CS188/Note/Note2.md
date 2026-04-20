@@ -14,7 +14,7 @@ tags:
 
 ## State Space Size
 
-![[b2f8aa134bbd61eda2f20d78bcdcaa23.png]]
+![[notes/CS188/static/b2f8aa134bbd61eda2f20d78bcdcaa23.png]]
 
 ###### • Pacman positions - Pacman can be in 120 distinct (x, y) positions, and there is only one Pacman 
 ###### • Pacman Direction - this can be North, South, East, or West, for a total of 4 possibilities 
@@ -23,7 +23,7 @@ tags:
 整体数量：120 × 4 × 12² × 2³⁰    数量旁大无法存储
 
 ## State Space Graph vs Search Tree
-![[c659ec7fec23e85c3484717cfe178a71.png]]
+![[notes/CS188/static/c659ec7fec23e85c3484717cfe178a71.png]]
 ### State Space Graph（概念上的完整图）
 
 - 每一个 state 只出现一次

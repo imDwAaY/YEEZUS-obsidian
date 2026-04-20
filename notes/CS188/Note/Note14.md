@@ -8,9 +8,9 @@ tags:
 source: 6.6 Exact Inference in Bayes Nets
 ---
 # Inference
-在[Bayes Net](CS188/Note/Note12#Bayes%20Net)中，Inference的目标是求解一个条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$,也就是给出一些**观测的变量( evidence )**,计算**查询变量( query variables )** 的后验概率
+在[Bayes Net](Note12.md#Bayes%20Net)中，Inference的目标是求解一个条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$,也就是给出一些**观测的变量( evidence )**,计算**查询变量( query variables )** 的后验概率
 比如$P(T \mid +e)$就表示着我们要求解当我们已经观察到事件e为真时，T为真的概率是多少？
-我们首先能想到的最基础的方法就是，直接构造一个完整的[概率联合表]( CS188/Note/Note11#Joint%20Ditribution(%20联合分布%20) )，然后我们用在Note11中提及到的[Inference by Enumeration方法](CS188/Note/Note11#Inference%20by%20Enumeration),先选择与evidence一致的行再求和最后归一化。但是这样做的问题也很明显，问题就在于第一步构造完整概率联合表上，假设每个变量都是binary,如果有n个变量那么就会有$2^n$个rows，构造这样大的表很有难度。这就引出来了我们解决问题的方法`Variable Elimination`。我们在本讲引入的方法就是 #Exact_Inference
+我们首先能想到的最基础的方法就是，直接构造一个完整的[概率联合表]( Note11.md#Joint%20Ditribution(%20联合分布%20) )，然后我们用在Note11中提及到的[Inference by Enumeration方法](Note11.md#Inference%20by%20Enumeration),先选择与evidence一致的行再求和最后归一化。但是这样做的问题也很明显，问题就在于第一步构造完整概率联合表上，假设每个变量都是binary,如果有n个变量那么就会有$2^n$个rows，构造这样大的表很有难度。这就引出来了我们解决问题的方法`Variable Elimination`。我们在本讲引入的方法就是 #Exact_Inference
 - - -
 # Variable Elimination
 首先我们需要定义`Factor`为一个未归一化的概率表，比如$P(A \mid B)$或者$P(A, B)$

@@ -11,7 +11,7 @@ source: 6.5 D-Separation
 ---
 
 # D-Separation
-**D-separation** 是贝叶斯网络中的一个概念，用于**通过图结构([DAG](CS188/Note/Note12#Bayes%20Net))判断随机变量之间的条件独立性**
+**D-separation** 是贝叶斯网络中的一个概念，用于**通过图结构([DAG](Note12.md#Bayes%20Net))判断随机变量之间的条件独立性**
 首先需要回顾一下的是：在图中，只要给定了某个节点的所有父节点，那么该节点就与其所有祖先节点在逻辑上是相互独立的
 ```text
 A node is conditionally independent of all its ancestor nodes in the
@@ -25,7 +25,7 @@ graph given all of its parents.
 ![[image.SHOKL3.png | 500]]
 这时候X和Z关于Y**条件独立**(X⊥⊥Z∣Y)，这时候就用到了最开始提到的定理，只要给定了某个节点的所有父节点，那么该节点就与其所有祖先节点在逻辑上是相互独立的，此时X和Z是独立的
 也可以通过公式来证明：
-HINT: 记得回顾一下[链式法则](CS188/Note/Note11#Chain%20Rule(%20链式法则%20))还有[独立性](CS188/Note/Note11#Independence(%20独立性%20))
+HINT: 记得回顾一下[链式法则](Note11.md#Chain%20Rule(%20链式法则%20))还有[独立性](Note11.md#Independence(%20独立性%20))
 $$
 \large
 \begin{align*}

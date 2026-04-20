@@ -10,7 +10,7 @@ tags:
   - "#Thread_Pools"
 ---
 # File Descriptor 和 Open File Description
-我们在上一次[Note4](CS162/Note/Note4#Low-Level%20I/O)中第一次提及到了`File Descriptor`,但是我们并没有给出明确定义。这里我们正式给出我们的定义：
+我们在上一次[Note4](notes/CS162/Note/Note4.md#Low-Level%20I/O)中第一次提及到了`File Descriptor`,但是我们并没有给出明确定义。这里我们正式给出我们的定义：
 ## File Descriptor
 `file descriptor` 是一个 int。它是进程视角看到的“句柄”, 课件强调它只是一个编号。注意注意只是一个int，没别的含义
 ```c
@@ -97,7 +97,7 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 - - -
 - - -
 # IPC: Inter-Process Communication
-我们首先回顾一下`Process`的[概念](CS162/Note/Note2#Process), 默认情况下进程之间信息不会自动流入流出。要进行通信的话必须显式设置机制，这就是我们的IPC.这一讲列举了很多方式:
+我们首先回顾一下`Process`的[概念](notes/CS162/Note/Note2.md#Process), 默认情况下进程之间信息不会自动流入流出。要进行通信的话必须显式设置机制，这就是我们的IPC.这一讲列举了很多方式:
 - file-like communication
 - pipe
 - socket
@@ -236,7 +236,7 @@ struct addrinfo *setup_address(char *port) {
 }
 ```
 ### Server Protection
-然后我们继续深入思考，每个`Server`该怎么保护自己？答案就是每个连接用一个独立进程处理。因为如果每个client连接都在单独子进程中处理，逻辑就可以被隔离。如果一个请求崩了，至少不容易带着主`Server`一起跨掉，这种思想类似于沙箱思想。这时候我们就想到了之前在[Note3](CS162/Note/Note3#Fork)中提及到的`fork()`
+然后我们继续深入思考，每个`Server`该怎么保护自己？答案就是每个连接用一个独立进程处理。因为如果每个client连接都在单独子进程中处理，逻辑就可以被隔离。如果一个请求崩了，至少不容易带着主`Server`一起跨掉，这种思想类似于沙箱思想。这时候我们就想到了之前在[Note3](notes/CS162/Note/Note3.md#Fork)中提及到的`fork()`
 ![[截屏2026-04-17 11.59.55.png]]
 Server Code: **VERSION2**
 ```c

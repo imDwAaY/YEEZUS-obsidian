@@ -28,7 +28,7 @@ Naive Bayes是一种用于分类的概率模型，它的核心思想是：给定
 ## Feature
 我们把对象表示称一组特征，也就是`features`，因为机器学习模型一般不会直接拿原始对象来学习。
 在这个例子中所谓的`feature engineering`就是看某个词有没有出现，某个词出现了多少次，是否全大写等等特征。特征选的好不好会很明显影响模型性能。
-这个思想类似于我们很早之前在[Note5](CS188/Note/Note5#Evaluation%20Functions)提及到的`Evaluation Functions`的特征值
+这个思想类似于我们很早之前在[Note5](notes/CS188/Note/Note5.md#Evaluation%20Functions)提及到的`Evaluation Functions`的特征值
 ## 核心假设
 我们在这里用`f(x)`表示对输入`x`做feature function之后得到的特征表示：
 ```Markdown
@@ -48,7 +48,7 @@ $$
 > Features are conditionally independent given the class label.
 
 这是`Naive`的真正来源，因为现实中很多特征其实并不独立，但是模型强行把它们看成独立的。
-也就是下图的理解，在给定类别Y的条件下，各个特征$F_i$彼此独立。在[Note13的D-Separation算法](CS188/Note/Note13#D-Separation)中我们也提及到了判断每个$F_i$是否条件独立的方法
+也就是下图的理解，在给定类别Y的条件下，各个特征$F_i$彼此独立。在[Note13的D-Separation算法](Note13.md#D-Separation)中我们也提及到了判断每个$F_i$是否条件独立的方法
 ![[截屏2026-04-18 16.27.26.png|281]]
 在数学上我们可以理解为下面的式子：
 $$

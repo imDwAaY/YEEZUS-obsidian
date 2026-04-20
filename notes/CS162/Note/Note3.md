@@ -21,7 +21,7 @@ tags:
 所以说调度是一个Policy decision，而且调度是`OS`的主循环。因为`OS`的持续工作，本质上就是:先看谁ready，选一个然后切换过去运行
 - - -
 # Is Simple Base and Bound Enough for General Systems?
-我们在Note2中第一次提及到了[B&B](CS162/Note/Note2#Base%20And%20Bound),我们在这里提出这个问题:**B&B机制对于整个系统真的足够用吗？**
+我们在Note2中第一次提及到了[B&B](notes/CS162/Note/Note2.md#Base%20And%20Bound),我们在这里提出这个问题:**B&B机制对于整个系统真的足够用吗？**
 答案是不够的，对于真实系统`Base and Bound`这个机制太简单：
 - Inflexible: 必须提前预留一整块物理内存，供未来来使用。并且堆栈还会继续变大，这块预留的空间必须很大才可以
 - Fragmentation: `B&B`的基本前提是一个进程对应一整块连续内存，现实中进程会创建退出，并且不同进程占用大小不一样，释放之后会留下很多空洞。剩的很多但是空不出来一整个大块，这就叫做`external fragmentation(外部碎片)`
@@ -29,15 +29,15 @@ tags:
 所以说现代主要用的是Pages tables / virtual memory
 ![[截屏2026-04-01 21.40.50.png|322]]![[截屏2026-04-01 21.40.16.png|342]]
 # Implementing Safe Kernel Mode Transfers
-我们先回忆一下[User -> Kernel 的三种方式](CS162/Note/Note2#User%20->%20Kernel%20的三种方式),我们的初衷是不能让恶意或者错误的用户程序让内核本身遭到破坏。
+我们先回忆一下[User -> Kernel 的三种方式](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式),我们的初衷是不能让恶意或者错误的用户程序让内核本身遭到破坏。
 ## 先前条件
 在实现安全进入内核之前，我们要明确两个条件：
 - 在进入`Kernel Mode`的时候，要**原子性**地转移到明确的`Kernel`入口点。原子性就是在表示内核入口一定要精确再精确，只能通过固定入口来进入，不能让用户随意跳到任何位置
 - Seperate kernel stack: 不能使用用户生态栈，而要切到独立的`kernel stack`。第一个原因是User stack不可信，用户程序不可预测; 第二个原因是User stack会被修改，这时候内核逻辑会被直接劫持。
 这里在给个例子详细解释一下为什么需要`Kernel stack`而绝不能相信`User stack`：
 ![[截屏2026-04-01 23.35.25.png|338]]![[截屏2026-04-01 23.46.40.png|327]]
-第一张图片是在运行用户程序，当前CPU寄存器里面寄存着SS:ESP -> 用户栈，CS:EIP -> 当前执行位置，还有其他的寄存器,这些寄存器保存的都是`thread`的[上下文](CS162/Note/Note2#Thread).
-第二张图片进入了`Kernel Mode`，触发事件有可能是[三种转换方式中的一种](CS162/Note/Note2#User%20->%20Kernel%20的三种方式),这时候`User stack`就切换到了`Kernel stack`，同时CPU把上下文自动压到`Kernel stack`，并且执行`handler`。`handler`执行结束后就restore context，并且重新切回`User mode`和`User stack`
+第一张图片是在运行用户程序，当前CPU寄存器里面寄存着SS:ESP -> 用户栈，CS:EIP -> 当前执行位置，还有其他的寄存器,这些寄存器保存的都是`thread`的[上下文](notes/CS162/Note/Note2.md#Thread).
+第二张图片进入了`Kernel Mode`，触发事件有可能是[三种转换方式中的一种](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式),这时候`User stack`就切换到了`Kernel stack`，同时CPU把上下文自动压到`Kernel stack`，并且执行`handler`。`handler`执行结束后就restore context，并且重新切回`User mode`和`User stack`
 那我们如何限制内核入口点呢？
 - 我们使用`indirection table`: `Interrupt handler table` and `system call table`
 ## System Call Handler

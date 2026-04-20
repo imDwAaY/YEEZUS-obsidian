@@ -39,7 +39,7 @@ tags:
 ![[image.QT5FH3.png]]
 ## Local Beam Search
 ### 要点
-- 是[HIll-climbing](CS188/Note/Note4.md#Hill-Climbing)的variant(变体)
+- 是[HIll-climbing](notes/CS188/Note/Note4.md#Hill-Climbing)的variant(变体)
 - 维护着k个并行状态(threads / beam width = k)
 - 并不只是k个hill-climbing算法的副本，每一步都会在当前所有线程的所有successor state中选出k个最好的来作为下一代
 - **每个thread线程信息共享，有着更高值的线程可以吸引其它线程向该区域探索**

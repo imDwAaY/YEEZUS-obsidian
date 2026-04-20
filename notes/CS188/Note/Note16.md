@@ -7,9 +7,9 @@ tags:
   - "#Bayes_Nets"
 source: 7.1( Utilities ) - 7.3 ( The Value of Perfect Information )
 ---
-本次Note因为比CS188 2018Fall上课讲授内容增添了很多新内容，所以会比较详细一些。同时将[Bayes Net](CS188/Note/Note12#Bayes%20Net)和我们之前所学知识正式结合起来，有种受益匪浅的感觉
+本次Note因为比CS188 2018Fall上课讲授内容增添了很多新内容，所以会比较详细一些。同时将[Bayes Net](Note12.md#Bayes%20Net)和我们之前所学知识正式结合起来，有种受益匪浅的感觉
 # Utilities
-在我的Note中，最早提及到`Utility`这个概念是在[Note5](CS188/Note/Note5#Game%20Formulation),当时我们在定义成的时候简单理解为了得到的分数。现在我们进行正式定义`Utility`：
+在我的Note中，最早提及到`Utility`这个概念是在[Note5](notes/CS188/Note/Note5.md#Game%20Formulation),当时我们在定义成的时候简单理解为了得到的分数。现在我们进行正式定义`Utility`：
 > `Utility`是一个数值，用来表示 agent 对某个结果的偏好程度。在决策理论中，agent 的目标是**最大化期望效用（Maximize Expected Utility, MEU）**。
 
 ## 偏好的数学表示
@@ -87,7 +87,7 @@ $$
 ![[截屏2026-03-07 18.56.25.png|697]]
 - - -
 # Decision Networks
-Decision Network 是 Bayes' Net 和 Expectimax 的结合，用来在不确定性下做决策。首先我们又重新回顾了一下节点图形的分类，原先的节点分类在[Note5](CS188/Note/Note5#Alpha-Beta%20Pruning%20Example)提及到过，在`Decision Networks`中包含了三类节点：
+Decision Network 是 Bayes' Net 和 Expectimax 的结合，用来在不确定性下做决策。首先我们又重新回顾了一下节点图形的分类，原先的节点分类在[Note5](notes/CS188/Note/Note5.md#Alpha-Beta%20Pruning%20Example)提及到过，在`Decision Networks`中包含了三类节点：
 - **Chance nodes（椭圆形）**：表示随机变量，像 Bayes' net 中的节点。
 - **Action nodes（矩形）**：表示 agent 可以选择的动作。
 - **Utility nodes（菱形）**：表示效用值，依赖于其父节点（可以是 chance 或 action）。
@@ -125,7 +125,7 @@ Decision network 的决策过程可以展开为 **outcome tree**：
 - 下一层是 **chance nodes**（根据概率分布）
 - 叶子节点是 **utility values**
 ![[截屏2026-03-07 19.25.37.png]]
-结果树本质上很像[Expectimax](CS188/Note/Note6#Expectimax):
+结果树本质上很像[Expectimax](Note6.md#Expectimax):
 - 我方节点取 max
 - 随机节点取 expectation
 但是不同的是outcome tree 会明确标出“当前知道什么 evidence”，课件里说是用大括号标记 what we know at any moment。

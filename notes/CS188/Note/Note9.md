@@ -9,7 +9,7 @@ source: "Note24(RL: Reinforcement Learning I (Cam))"
 ---
 # Reinforcement Learning
 ## Offline Planning and Online Planning
-在先前的[MDP](CS188/Note/Note7#Markov%20Decision%20Processes)中，我们完全知道了转移函数和奖励函数。这种在真正采取行动之前，就已经知道最优怎么做叫做离线规划( Offline planning )，现在Reinforcement Learning是在线规划，agent对真实世界一无所知，必须靠探索( exploration )来收集经验样本，逐步估计最优策略
+在先前的[MDP](Note7.md#Markov%20Decision%20Processes)中，我们完全知道了转移函数和奖励函数。这种在真正采取行动之前，就已经知道最优怎么做叫做离线规划( Offline planning )，现在Reinforcement Learning是在线规划，agent对真实世界一无所知，必须靠探索( exploration )来收集经验样本，逐步估计最优策略
 ## Types of RL
 强化学习分为两种类型：
 - 1. **基于模型的学习 (Model-based Learning)**：先用样本估计$\hat{T}$和$\hat{R}$，再用规划算法求解策略。
@@ -74,7 +74,7 @@ from state D to termination we acquired a total reward of 10, from state C we ac
 | E   | -4           | 2             | -2           |
 ![[image.JZAMK3 1.png | 260]]
 一定一定要注意，这里的效用值是累计折扣回报，而不是单步的回报，所以说在计算状态B的效用值的时候要加上未来的回报。
-根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](CS188/Note/Note3#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$\begin{align*}V^{\pi}(B) &= V^{\pi}(E)\end{align*}$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差
+根据图可以很容易发现一个问题，这种方法忽略的状态之间的转移关系，破坏了连续状态的[一致性](notes/CS188/Note/Note3.md#Admissibility%20vs.%20Consistency)  例如 B和 E 在策略下都只有后继C，且奖励相同，按理来说$\begin{align*}V^{\pi}(B) &= V^{\pi}(E)\end{align*}$，但采样随机性导致 E恰好碰上一次负奖励，估值严重偏离,需要很多的样本才能消除这种误差
 
 ---
 # Temporal Difference Learning
@@ -121,7 +121,7 @@ $$
 Q_{k+1}(s,a) &= \sum_{s'} T(s,a,s')\big[\,R(s,a,s') + \gamma \max_{a'} Q_k(s',a')\,\big]
 \end{align*}
 $$
-这个公式是贝尔曼方程的変式，其需要T,R 这是[Value Iteration](CS188/Note/Note8#Value%20Iteration)的变体,不是实际的Q-learning
+这个公式是贝尔曼方程的変式，其需要T,R 这是[Value Iteration](Note8.md#Value%20Iteration)的变体,不是实际的Q-learning
 ## 实际方法
 $$
 \LARGE

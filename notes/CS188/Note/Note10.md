@@ -66,11 +66,11 @@ $$
 其中N( s, a )表示状态-动作对( s, a )被访问的次数。k表示偏好系数，即控制探索( Exploration )的强度
 # RL Summary
 ## Model-based Learning（基于模型的学习）
-在Note9中有详细介绍，[快速回顾](CS188/Note/Note9#Model-Based%20Learning)
+在Note9中有详细介绍，[快速回顾](Note9.md#Model-Based%20Learning)
 - 先估计环境的转移函数T和奖励函数R
-- 再用这些估计值进行规划（如 [Value Iteration](CS188/Note/Note8#Value%20Iteration) / [Policy Iteration](CS188/Note/Note8#Policy%20Iteration)）
+- 再用这些估计值进行规划（如 [Value Iteration](Note8.md#Value%20Iteration) / [Policy Iteration](Note8.md#Policy%20Iteration)）
 ## Model-free Learning（无模型学习）
-在Note9中有详细介绍，[快速回顾](CS188/Note/Note9#Model-Free%20Learning)
+在Note9中有详细介绍，[快速回顾](Note9.md#Model-Free%20Learning)
 - 不显式估计 TT 和 RR，直接学习值函数或策略
 
 | 方法                                             | 描述                 | 特点                     |

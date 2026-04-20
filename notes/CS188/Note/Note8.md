@@ -7,10 +7,10 @@ tags:
   - "#Value_Iteration"
 source: "Note18(MDPs: Dynamic Programming (Cam))"
 ---
-开始上强度了，Note8主要是在讲解MDP问题的解决方法，所以说要记住这个Note8围绕的是求解[policy(状态到动作的映射)](CS188/Note/Note7#策略(%20Policy%20)与目标)
+开始上强度了，Note8主要是在讲解MDP问题的解决方法，所以说要记住这个Note8围绕的是求解[policy(状态到动作的映射)](Note7.md#策略(%20Policy%20)与目标)
 # Value Iteration
 ## 初步思路框架
-首先想到的第一个方法就是评估每个状态的utility,之后用[Bellman方程](CS188/Note/Note7#Bellman方程)来求解Q*( s, a )，即最优Q值，在状态 s **执行动作 a**后，再按最优策略能获得的期望折扣总奖励。最优Q值里面就带有了动作信息，从而求出最佳policy
+首先想到的第一个方法就是评估每个状态的utility,之后用[Bellman方程](Note7.md#Bellman方程)来求解Q*( s, a )，即最优Q值，在状态 s **执行动作 a**后，再按最优策略能获得的期望折扣总奖励。最优Q值里面就带有了动作信息，从而求出最佳policy
 $$
 \LARGE
 \begin{align*}

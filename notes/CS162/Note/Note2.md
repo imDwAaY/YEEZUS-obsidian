@@ -9,7 +9,7 @@ tags:
   - "#Time_Multiplexing"
   - "#Abstraction"
 ---
-这次介绍的是四大基本OS概念:`Thread`, `Address Space`, `Process`, `Dual Mode Operation`。这次的Note内容是对上一次[Note](CS162/Note/Note1)的一些补充和扩展,比如对于`Thread`等概念进行了阐述。
+这次介绍的是四大基本OS概念:`Thread`, `Address Space`, `Process`, `Dual Mode Operation`。这次的Note内容是对上一次[Note](notes/CS162/Note/Note1.md)的一些补充和扩展,比如对于`Thread`等概念进行了阐述。
 # Thread
 在原课件中的定义是:
 > Thread: Single unique execution context:
@@ -151,7 +151,7 @@ OS执行返回User mode，开始从用户PC执行用户程序
 ## 第三步: 执行用户代码
 此时程序运行在受保护的地址空间里，内核暂时放手
 ## 第四步: 内核重新拿回控制权
-通过`timer interrupt`还有`I/O request / interrupt`还有`exception / trap`来重新拿回控制权，这在[User -> Kernel](CS162/Note/Note2#User%20->%20Kernel%20的三种方式)是提及到过的
+通过`timer interrupt`还有`I/O request / interrupt`还有`exception / trap`来重新拿回控制权，这在[User -> Kernel](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式)是提及到过的
 ## 第五步: 发生中断后
 硬件会：
 - 保存用户 PC

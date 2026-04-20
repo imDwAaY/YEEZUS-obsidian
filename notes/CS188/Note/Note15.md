@@ -9,11 +9,11 @@ tags:
 source: "6.7( Approximate Inference in Bayes Nets: Sampling ) - 6.8( Summary )"
 ---
 #  问题引入
-我们在Note14中提及到了两种解决计算条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$的方法,分别是[Inference by Enumeration](CS188/Note/Note14#Inference)和[Variable Elimination](CS188/Note/Note14#Variable%20Elimination),这两种方法我们叫做精确推理( #Exact_Inference  )，在面临网格结构复杂还有变量众多的情况下，其计算量会变得巨大。所以说我们就引入了一种近似推理的方法--**Sampling**，通过牺牲精度来换效率。这种方法我们叫做 #Approximate_Inference 
+我们在Note14中提及到了两种解决计算条件概率$\begin{align*}&P\big(Q_1 \ldots Q_k \mid e_1 \ldots e_k\big)\end{align*}$的方法,分别是[Inference by Enumeration](Note14.md#Inference)和[Variable Elimination](Note14.md#Variable%20Elimination),这两种方法我们叫做精确推理( #Exact_Inference  )，在面临网格结构复杂还有变量众多的情况下，其计算量会变得巨大。所以说我们就引入了一种近似推理的方法--**Sampling**，通过牺牲精度来换效率。这种方法我们叫做 #Approximate_Inference 
 # Prior Sampling
-这个方法是在通过拓扑顺序来依次在CPT中随机抽样，进而生成一个完整样本。再之后不断重复这个过程，出现大量样本后，某个事件出现的频率会收敛至它出现的真实频率.每个样本 (x₁, x₂, ..., xₙ) 被抽中的概率正是网络的联合概率 P(x₁, x₂, ..., xₙ)，因为生成过程就是按照联合概率的分解[（Chain rule）](CS188/Note/Note11#Chain%20Rule(%20链式法则%20))依次采样。
+这个方法是在通过拓扑顺序来依次在CPT中随机抽样，进而生成一个完整样本。再之后不断重复这个过程，出现大量样本后，某个事件出现的频率会收敛至它出现的真实频率.每个样本 (x₁, x₂, ..., xₙ) 被抽中的概率正是网络的联合概率 P(x₁, x₂, ..., xₙ)，因为生成过程就是按照联合概率的分解[（Chain rule）](Note11.md#Chain%20Rule(%20链式法则%20))依次采样。
 它的缺点也很明显，在面临计算条件概率的问题时，会浪费大量的样本，进而导致效率十分低下。如果样本很少时，又不能覆盖所有的情况
-> 这里提醒一句，在[Bayes Net](CS188/Note/Note12#Bayes%20Net)中，一定一定不能把概率设为0.0，即便这个事件发生的概率很小，也应该赋予一个很小的概率值
+> 这里提醒一句，在[Bayes Net](Note12.md#Bayes%20Net)中，一定一定不能把概率设为0.0，即便这个事件发生的概率很小，也应该赋予一个很小的概率值
 ## 实例
 ![[截屏2026-03-04 14.24.37.png]]
 - 上面给定了五个样本，我们观察一下求解$P(C \mid +w)$的概率。给定+w，我们只需要划掉第三个样本，剩下四个样本+C的概率为3/4，即得$P(C \mid +w)$为3/4.
@@ -61,7 +61,7 @@ def get_sample():
 ## Likelihood Weighting不同节点的内在联系
 - 我们需要意识到的是，因为我们固定`evidence`是固定出现的，`evidence`相关的条件概率并不会影响这个样本出现的概率。只有`evidence`之外的节点才会影响该样本的概率。
 - 而我们的权重是只有概率节点的条件概率的乘积，这两个乘积没有任何交集，但它们的乘积就是联合概率
-我们在这里回顾一下`Bayes Net`的[联合概率计算公式](CS188/Note/Note12#联合概率计算公式)，[联合概率](CS188/Note/Note11#Joint%20Distribution(%20联合分布%20))就是所有节点的条件概率的乘积。
+我们在这里回顾一下`Bayes Net`的[联合概率计算公式](Note12.md#联合概率计算公式)，[联合概率](Note11.md#Joint%20Distribution(%20联合分布%20))就是所有节点的条件概率的乘积。
 假设一个网格，`A -> B -> C`,假设`evidence`为`C = True`，联合分布为
 $$
 \LARGE
@@ -84,7 +84,7 @@ $$
 w &= \prod_{\text{evidence}} P\big(e_i \mid \mathrm{parents}(e_i)\big) = P(C \mid B)
 \end{align*}
 $$
-上面二式乘积正为[联合概率](CS188/Note/Note11#Joint%20Distribution(%20联合分布%20))
+上面二式乘积正为[联合概率](Note11.md#Joint%20Distribution(%20联合分布%20))
 $$
 \LARGE
 \begin{align*}

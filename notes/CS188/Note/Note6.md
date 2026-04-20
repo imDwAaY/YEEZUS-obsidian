@@ -4,9 +4,9 @@ tags:
   - "#Expectimax"
 ---
 # Expectimax
-- 问题：当对手**不是总是最优**、或者游戏包含**随机性(dice/cards)** 时，[Minimax](CS188/Note/Note5.md#Minimax) 太悲观。
+- 问题：当对手**不是总是最优**、或者游戏包含**随机性(dice/cards)** 时，[Minimax](notes/CS188/Note/Note5.md#Minimax) 太悲观。
 - 想法：把“最小化节点”换成“**chance nodes（随机节点）**”，用**期望值**代替最小值。
-**[Markov decision processes](CS188/Note/Note7.md#Markov%20decision%20processes)** 将有更详细的讨论具有内在随机性的内容
+**[Markov decision processes](Note7.md#Markov%20decision%20processes)** 将有更详细的讨论具有内在随机性的内容
 ## Defination
 $$
 \Large

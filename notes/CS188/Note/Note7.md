@@ -36,7 +36,7 @@ U\big([s_0,a_0,s_1,a_1,s_2,\ldots]\big)
 \end{align*}
 $$
 ### Q-states
-MDP也能转化称搜索树，不确定性的节点叫做**Q-states**，对应下面的搜索树图中的绿色圆圈。**Q-states**非常类似于[Expectimax算法](CS188/Note/Note6.md#Expectimax)，它们都用**概率**来处理环境的不确定性，这一点和Expectimax算法中的机会节点( chance node )十分相近
+MDP也能转化称搜索树，不确定性的节点叫做**Q-states**，对应下面的搜索树图中的绿色圆圈。**Q-states**非常类似于[Expectimax算法](Note6.md#Expectimax)，它们都用**概率**来处理环境的不确定性，这一点和Expectimax算法中的机会节点( chance node )十分相近
 ![[image.T7O5I3.png]]
 - - -
 # Finite Horizons and Discounting

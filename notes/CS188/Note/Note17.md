@@ -7,11 +7,11 @@ tags:
 source: 8.2( Hidden Markov Models ) - 8.3( The Viterbi Algorithm )
 ---
 # Hidden Markov Models
-我们在之前学习到了[马尔可夫模型](CS188/Note/Note7#Markov%20Decision%20Processes)，并且着重点放在了状态随时间怎么变化。但是现实情况是，有很多真实状态我们观测不到。所以说我们正式引入`HMM( Hidden Markov Models )`.
+我们在之前学习到了[马尔可夫模型](Note7.md#Markov%20Decision%20Processes)，并且着重点放在了状态随时间怎么变化。但是现实情况是，有很多真实状态我们观测不到。所以说我们正式引入`HMM( Hidden Markov Models )`.
 > 状态依然按照`Markov chain`演化，但每个时刻都会产生一个可以观测的`evidence variable`,相当于每走一步观测一次
 
 ![[截屏2026-03-14 20.26.44.png]]
-需要提及的是在原Note中给出的一些独立性变量，我们可以回顾一下[Note13](CS188/Note/Note13)的内容，图中展示的内容全部为`因果链( Causal Chain )`,有一个变量被观测，则被观测节点的+n节点和-n节点都是相互独立的
+需要提及的是在原Note中给出的一些独立性变量，我们可以回顾一下[Note13](Note13.md)的内容，图中展示的内容全部为`因果链( Causal Chain )`,有一个变量被观测，则被观测节点的+n节点和-n节点都是相互独立的
 $$
 \LARGE
 \begin{align*}
@@ -26,7 +26,7 @@ $$
 - 类似的，我们定义在i状态下，还没有在此刻采取观测的`belief`为$B'(W_i) = P(W_i \mid f_1, ..., f_{i - 1})$
 ## HMM两个关键独立性假设
 ### 状态转移仍然满足马尔可夫性
-在[Note7](CS188/Note/Note7#马尔可夫性%20Markovianess)，我们提及到了马尔可夫性，即可以简单理解为给定当前状态s **( 以及当前动作a )** 后未来的下一步action概率分布不受过去的任何行为影响 -> **只需要当前状态即可预测未来行为**
+在[Note7](Note7.md#马尔可夫性%20Markovianess)，我们提及到了马尔可夫性，即可以简单理解为给定当前状态s **( 以及当前动作a )** 后未来的下一步action概率分布不受过去的任何行为影响 -> **只需要当前状态即可预测未来行为**
 ### 当前观测只依赖当前状态
 $$
 \LARGE

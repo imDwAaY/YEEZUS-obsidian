@@ -9,7 +9,9 @@ tags:
 ---
 # Q1.Value Iteration
 第一个问题是最基础的值迭代实现，这个问题没有什么难度，主要就是一边看着公式一遍敲代码复现。可以先回顾一下Note8中的[Value Iteration框架](notes/CS188/Note/Note8.md#Value%20Iteration).唯一唯一需要注意的就是需要使用的是`batch`版本，而不是`online`版本。这里是前面Note没有提及到的概念，用图片来理解一下会更好一点
+
 ![[notes/CS188/static/920d89d9104d3a97bca4c6acdf76c40b.png| 250]]![[notes/CS188/static/3dc5a64d4ade3f52de0ea4fb2692d250.png| 250]]
+
 >这个问题用的数据结构是`Counter`，它的底层容器是哈希表。`Counter`十分类似于`Dictionary`,它只是新增了一条设定，即所有初始值都为0。上图中一张图就可以理解为一个`Counter`，每个状态都有对应的Value,就和键值对应一样
 
 所谓online版本，就是在某轮循环更新某个状态时，你用了本轮其它状态的值。可以参考图一，假设遍历的第一个状态是效用值为1的状态，1左边的方格在第一轮也会受到效用值1的影响。这样就是偷看了本轮新值。
@@ -98,7 +100,9 @@ Q2问题更简单了，这就是凭直觉调节参数的题目，需要注意的
 - LivingReward
 	- 如果目的是一直不退出，则将存活奖励调大
 	- 反之则调小
+
 ![[notes/CS188/static/Pasted image 20260222232940.png| 400]]
+
 ## 代码实现
 ```python
 def question2a():

@@ -39,7 +39,6 @@ tags:
 这里在给个例子详细解释一下为什么需要`Kernel stack`而绝不能相信`User stack`：
 
 ![[notes/CS162/static/截屏2026-04-01 23.35.25.png|338]]![[notes/CS162/static/截屏2026-04-01 23.46.40.png|327]]
-
 第一张图片是在运行用户程序，当前CPU寄存器里面寄存着SS:ESP -> 用户栈，CS:EIP -> 当前执行位置，还有其他的寄存器,这些寄存器保存的都是`thread`的[上下文](notes/CS162/Note/Note2.md#Thread).
 第二张图片进入了`Kernel Mode`，触发事件有可能是[三种转换方式中的一种](notes/CS162/Note/Note2.md#User%20->%20Kernel%20的三种方式),这时候`User stack`就切换到了`Kernel stack`，同时CPU把上下文自动压到`Kernel stack`，并且执行`handler`。`handler`执行结束后就restore context，并且重新切回`User mode`和`User stack`
 那我们如何限制内核入口点呢？

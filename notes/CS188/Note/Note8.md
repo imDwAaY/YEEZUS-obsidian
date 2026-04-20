@@ -20,8 +20,8 @@ $$
 一定要注意的是，Bellman方程的适用范围只有最优解即带有* 的变量
 ## 实现过程
 在这个过程之中，每个状态的utility是通过动态规划的思想逐步更新的，直到收敛到最优值**U*(s)**
-在进行公式表达之前，需要定义$\begin{align*}U_{k}(s)\end{align*}$为从状态s出发，走k布所能获得的效用值
-- 初始设定：$\begin{align*}U_{0}(s)\end{align*}$ = 0,因为走0步不能或者任何奖励
+在进行公式表达之前，需要定义$U_{k}(s)$为从状态s出发，走k布所能获得的效用值
+- 初始设定：$U_{0}(s)$ = 0,因为走0步不能或者任何奖励
 - 迭代规则：
 $$
 \LARGE
@@ -32,7 +32,7 @@ $$
 证明值迭代最终会收敛的过程省略，在原Note中有详细证明过程
 ## Value Iteration示例
 ![[notes/CS188/static/image.OVUXI3.png]]
-折扣因子γ = 0.5，最开始的初始状态所有状态的都是$\begin{align*}U_{0}(s)\end{align*}$ = 0，所以可以得到下面的表格
+折扣因子γ = 0.5，最开始的初始状态所有状态的都是$U_{0}(s)$ = 0，所以可以得到下面的表格
 
 |       | cool | warm | overheated |
 | ----- | ---- | ---- | ---------- |
@@ -84,11 +84,11 @@ $$
 U_{k+1}(s) &\leftarrow \max_a \sum_{s'} T(s,a,s')\big[R(s,a,s') + \gamma\, U_k(s')\big]
 \end{align*}
 $$
-其中$\begin{align*}U_{k}(s')\end{align*}$ 这一部分并不是发生在$\begin{align*}U_{k+1}(s)\end{align*}$前面的，可以根据状态变化看出来，s采取动作a变成了状态s'，在状态s时还有k+1步未走，到达状态s’后剩余k步，这里动态规划复用的是$\begin{align*}U_{k}(s')\end{align*}$ 来表明下一时刻的未来价值。
-举个例子来说，在算$\begin{align*}U_{2}(cool)\end{align*}$的时候，假设采取的动作的是slow,$\begin{align*}U_{1}(cool)\end{align*}$表示的是站在$\begin{align*}U_{2}(cool)\end{align*}$的角度，下一步又回到了cool,从那一刻开始你还能再拿到的最佳期望收益，所以说$\begin{align*}U_{1}\end{align*}$不是已经发生的收益，而是未来的收益。我最开始只看例子误解了公式，因为折扣因子是和$\begin{align*}U_{1}(cool)\end{align*}$相乘的，让我误以为原本意图是给过去的效用上折扣，实际上不是
+其中$U_{k}(s')$ 这一部分并不是发生在$U_{k+1}(s)$前面的，可以根据状态变化看出来，s采取动作a变成了状态s'，在状态s时还有k+1步未走，到达状态s’后剩余k步，这里动态规划复用的是$U_{k}(s')$ 来表明下一时刻的未来价值。
+举个例子来说，在算$U_{2}(cool)$的时候，假设采取的动作的是slow,$U_{1}(cool)$表示的是站在$U_{2}(cool)$的角度，下一步又回到了cool,从那一刻开始你还能再拿到的最佳期望收益，所以说$U_{1}$不是已经发生的收益，而是未来的收益。我最开始只看例子误解了公式，因为折扣因子是和$U_{1}(cool)$相乘的，让我误以为原本意图是给过去的效用上折扣，实际上不是
 - --
 # Policy Extraction
-这一步就到了我在value iteration中提及到的求完Q*( s, a )后提取最优策略既$\begin{align*}\pi^*(s)\end{align*}$，下面是公式
+这一步就到了我在value iteration中提及到的求完Q*( s, a )后提取最优策略既$\pi^*(s)$，下面是公式
 $$
 \Large
 \begin{align*}
@@ -130,14 +130,14 @@ $$
 ---
 # Policy Iteration
 ## 问题引入
-引入Policy Iteration的问题就是，如果用value iteration,其时间复杂度过高。value iteration共有三层循环，对每个状态 |S|, 对每个动作 |A|, 对每个下一状态 |S′|, 综合在一起时间复杂度就是$\begin{align*}O\big(|S|^2|A|\big)\end{align*}$
+引入Policy Iteration的问题就是，如果用value iteration,其时间复杂度过高。value iteration共有三层循环，对每个状态 |S|, 对每个动作 |A|, 对每个下一状态 |S′|, 综合在一起时间复杂度就是$O\big(|S|^2|A|\big)$
 所以说为了避免大量的功夫浪费在value iteration的不断数值计算上，就着重于策略的改进
 ## 核心思想
 ```text
 固定一个策略 → 算这个策略的真实价值 → 用这个价值改进策略 → 重复直到策略不发生变化
 ```
 ## 实现过程
-首先需要回顾一下Value Iteration中U的角标的含义，在这里$\begin{align*}U^{\pi}_{k}(s)\end{align*}$表示的是从状态s出发，一直采用策略${\pi}$走k步所能获得的效用值。在实现之前需要我们定义一个最初的policy,此时我们公式内容就不需要max了。核心公式如下
+首先需要回顾一下Value Iteration中U的角标的含义，在这里$U^{\pi}_{k}(s)$表示的是从状态s出发，一直采用策略${\pi}$走k步所能获得的效用值。在实现之前需要我们定义一个最初的policy,此时我们公式内容就不需要max了。核心公式如下
 $$
 \LARGE
 \begin{align*}

@@ -83,11 +83,11 @@ P\bigl(S_{t+1}=s_{t+1}\mid {}&S_t=s_t,\,A_t=a_t,\,S_{t-1}=s_{t-1},\,A_{t-1}=a_{t
 &= P\bigl(S_{t+1}=s_{t+1}\mid S_t=s_t,\,A_t=a_t\bigr)
 \end{align*}
 $$
-其中转移函数$\large\begin{align*}T(s,a,s') &= P\bigl(s' \mid s,a\bigr)\end{align*}$ 就是在就是在描述这一种的无记忆行为
+其中转移函数$\large T(s,a,s') = P\bigl(s' \mid s,a\bigr)$ 就是在就是在描述这一种的无记忆行为
 - - - 
 # 策略( Policy )与目标
-- **策略（policy）$\begin{align*}\pi^{*}\end{align*}$：S → A**，把状态映射到动作（可以是确定性或随机化策略）
-- **目标**：找到最优策略 $\begin{align*}\pi^{*}\end{align*}$，使得从任意起始状态出发，期望（折扣）累计回报最大化。可以理解为求解 MDP = 求策略
+- **策略（policy）$\pi^{*}$：S → A**，把状态映射到动作（可以是确定性或随机化策略）
+- **目标**：找到最优策略 $\pi^{*}$，使得从任意起始状态出发，期望（折扣）累计回报最大化。可以理解为求解 MDP = 求策略
 - - - 
 # Bellman方程
 ## 内容需知-价值函数与 Q 值的定义

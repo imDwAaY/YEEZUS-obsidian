@@ -79,7 +79,9 @@ $$
 Note给了我们一个例子,可以选择直接获取500$,也可以选择下面的lottery
 $$
 \LARGE
-L=[0.5,$0; 0.5,$1000]
+\begin{align*}
+L &= [0.5,\ \$0;\ 0.5,\ \$1000]
+\end{align*}
 $$
 - **Risk-neutral**：U(x) = x，对 lottery 和固定 $500 无差异
 - **Risk-averse**：U(x) = √x，偏好固定 $500
